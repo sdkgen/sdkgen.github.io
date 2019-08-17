@@ -1,0 +1,139 @@
+---
+name: Streams
+menu: Roadmap
+---
+
+# Server-side streamming to the client
+
+> This is a feature proposal. There may or may not be an experimental implementation. Everything detailed in this page may change or may never exist at all.
+
+## Goals
+
+- Allow the server to send a large blob of data in small pieces and allow the client to process those pieces as they come. Example: Downloading a binary file.
+- Allow the client to subscribe for notifications from the server about some specific topic.
+
+## Proposal
+
+Add a new sdkgen type `stream<T>` where a subtype can be specified and allow it to appear on any location where a type can appear. Example:
+
+```
+type Status enum { dead alive }
+type User {
+    id: uuid
+    name: string
+    status: Status
+    statusChanged: stream<Status>
+}
+
+fn getUser(id: uuid): User
+```
+
+This allows the stream to hold any data type (including `bytes`) and allow it to appear multiple times in a response.
+
+For the server, the stream is an object that must be created and returned. It will stay alive after the request has concluded. Example:
+
+```
+api.fn.getUser = async (ctx, {id}) => {
+    const user = await internalGetUser(id);
+    const statusChanged = new Stream<Status>();
+    function toggleStatus(status: Status) {
+        statusChanged.send(status);
+        setTimeout(() => toggleStatus(status === "dead" ? "alive" : "dead"), 1000);
+    }
+    toggleStatus("alive");
+    return { ...user, statusChanged };
+};
+```
+
+And for the client:
+
+```
+const user = await api.getUser(id);
+renderUser(user);
+user.statusChanged.onReceive(status => {
+    renderUser({ ...user, status });
+});
+```
+
+The stream can be closed by either side calling the `.end()` function. It can also be closed because of a connection issue (it will **not** automatically reopen). If the stream is closed because of any reason both sides will be notified with the `onEnd()` callback. In that case the client may decide to call the server again to open a new stream. From the server, calling `.send()` on a closed stream will throw.
+
+A more advanced example:
+
+```
+type UserInfo {
+    name: string
+    status: enum { dead alive }
+}
+type User {
+    id: uuid
+    ...UserInfo
+    userChanged: stream<UserInfo>
+}
+type UserList {
+    users: User[]
+    userAdded: stream<User>
+    userRemoved: stream<uuid>
+}
+fn getUserList(): UserList
+```
+
+In particular note that the `userAdd` may itself create a new stream on the fly. This is allowed.
+
+## Implementation
+
+A new `stream<T>` will be created on the parser, similar to the array or optional types. Each target/runtime will decide if it can support it or not. If this type is used but the target doesn't support it, the generated file won't be generated.
+
+At runtime each instance of `Stream` has a unique `uuid` that is equal on both the server and the client. For the SdkgenHttp protocol the following changes:
+
+1. If the response does not contain a Stream (deep check), then nothing changes.
+
+2. If the response contains at least one stream, anywhere, then the content type of the response changes to `text/event-stream`, instead of `application/json`. This inform the browser and any middlewares/proxies that the body should not be buffered and should be sent as early as possible. Then the server starts writing the response as a sequence of small json bodies. The header `X-Accel-Buffering: no` must be passed on the response too.
+
+The first thing sent on the response body will be the function response itself. If an stream is sent from the server, and UUID is generated and that is sent to the client. It will then receive the UUID and create a `Stream` instance tracking it. While there is at least one stream open, the connection will be kept open. Then for every `send()` or `end()` event from the server a new piece of the response body will be sent to the client, triggering the corresponding `Stream` instance. If the client has already closed it, then it will ignore the message. If all streams have been closed, both sides will drop the connection.
+
+This is very very similar to HTTP Server-Sent Events.
+
+Upsides of this implementation:
+
+1. Very light protocol and HTTP native. Should work anywhere.
+
+2. On HTTP/2 the TCP connection is multiplexed with other requests.
+
+Downsides of this implementation:
+
+1. The client has no way of letting the server now that is closed one particular stream. The server will keep sending messages and the client will keep ignoring them. When all other streams are closed the client will drop the connection (because it knows all streams are closed). Only then the server will understand the streams have been closed and finish them.
+
+2. Not all proxies might understand that this is an SSE connection and might buffer.
+
+3. Does not allow client-side streamming.
+
+## Alternative implementation
+
+If the response does not contain a Stream (deep check), then nothing changes.
+
+If the response contains at least one stream, anywhere, then a WebSocket will be opened for that particular request. First the client will send the function name and arguments, and then the server will reply with the function result body. For each stream on the result, a new UUID will be sent. For each stream message, a websocket message will be sent. Streams being closed can be notified by both sides. When all streams are closed, the connection is dropped.
+
+At first this will lose HTTP/2 multiplexing hability (multiple requests being handled in a single TCP connection). But there is a proposal from 09/2018 about WebSocket over HTTP/2. See [RFC8441](https://tools.ietf.org/html/rfc8441). Support>
+
+- Chrome: [behind a flag, since version 66](https://www.chromestatus.com/feature/6251293127475200)
+- Firefox: Unknown
+- NodeJS: [since version 12.0.0](https://github.com/nodejs/node/pull/23284)
+- Nginx: Unknown
+
+Upsides of this implementation:
+
+1. Full-duplex protocol. Allows client-side streamming.
+
+2. WebSockets are supported pretty much everywhere.
+
+Downsides of this implementation:
+
+1. Without RFC8441, WebSockets require opening a new TCP connection and performing a new TLS handshake, which is slow. Reusing the same WebSocket for multiple functions can work, but will worsen load balancing.
+
+## Alternative implementation 2
+
+Use gRPC as transport layer.
+
+Downsides of this implementation:
+
+1. gRPC uses HTTP/2 for its transport layer, which means it is unable to provide client-side streams on the Web. It has the very same limitations as the first implementation.
