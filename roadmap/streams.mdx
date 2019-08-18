@@ -79,6 +79,19 @@ fn getUserList(): UserList
 
 In particular note that the `userAdd` may itself create a new stream on the fly. This is allowed.
 
+A simpler example:
+
+```
+type Message {
+    authorId: uuid
+    id: uuid
+    body: string
+}
+
+fn listenMessages(): stream<Message>
+```
+
+
 ## Implementation
 
 A new `stream<T>` will be created on the parser, similar to the array or optional types. Each target/runtime will decide if it can support it or not. If this type is used but the target doesn't support it, the generated file won't be generated.
