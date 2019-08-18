@@ -3,6 +3,7 @@ node_js:
   - 10
 script:
   - npx docz build
+  - cp .docz/dist/index.html .docz/dist/404.html
 deploy:
   local_dir: .docz/dist
   provider: pages
