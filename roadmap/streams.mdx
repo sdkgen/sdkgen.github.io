@@ -113,11 +113,13 @@ If the response does not contain a Stream (deep check), then nothing changes.
 
 If the response contains at least one stream, anywhere, then a WebSocket will be opened for that particular request. First the client will send the function name and arguments, and then the server will reply with the function result body. For each stream on the result, a new UUID will be sent. For each stream message, a websocket message will be sent. Streams being closed can be notified by both sides. When all streams are closed, the connection is dropped.
 
-At first this will lose HTTP/2 multiplexing hability (multiple requests being handled in a single TCP connection). But there is a proposal from 09/2018 about WebSocket over HTTP/2. See [RFC8441](https://tools.ietf.org/html/rfc8441). Support>
+At first this will lose HTTP/2 multiplexing hability (multiple requests being handled in a single TCP connection). But there is a proposal from 09/2018 about WebSocket over HTTP/2. See [RFC8441](https://tools.ietf.org/html/rfc8441). Support:
 
-- Chrome: [behind a flag, since version 66](https://www.chromestatus.com/feature/6251293127475200)
-- Firefox: Unknown
-- NodeJS: [since version 12.0.0](https://github.com/nodejs/node/pull/23284)
+- Chrome: [behind a flag, released on version 66](https://www.chromestatus.com/feature/6251293127475200)
+- Firefox: [disabled by default, released on version 65](https://bugzilla.mozilla.org/show_bug.cgi?id=1434137)
+- NodeJS: [released on version 12](https://github.com/nodejs/node/pull/23284)
+- Edge: Unknown
+- Safari: Unknown
 - Nginx: Unknown
 
 Upsides of this implementation:
@@ -136,4 +138,4 @@ Use gRPC as transport layer.
 
 Downsides of this implementation:
 
-1. gRPC uses HTTP/2 for its transport layer, which means it is unable to provide client-side streams on the Web. It has the very same limitations as the first implementation.
+1. gRPC uses HTTP/2 for its transport layer, which means it is unable to provide client-side streams on the Web. It has the very same limitations of the first implementation.
