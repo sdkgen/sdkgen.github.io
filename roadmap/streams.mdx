@@ -85,9 +85,8 @@ A new `stream<T>` will be created on the parser, similar to the array or optiona
 
 At runtime each instance of `Stream` has a unique `uuid` that is equal on both the server and the client. For the SdkgenHttp protocol the following changes:
 
-1. If the response does not contain a Stream (deep check), then nothing changes.
-
-2. If the response contains at least one stream, anywhere, then the content type of the response changes to `text/event-stream`, instead of `application/json`. This inform the browser and any middlewares/proxies that the body should not be buffered and should be sent as early as possible. Then the server starts writing the response as a sequence of small json bodies. The header `X-Accel-Buffering: no` must be passed on the response too.
+- If the response does not contain a Stream (deep check), then nothing changes.
+- If the response contains at least one stream, anywhere, then the content type of the response changes to `text/event-stream`, instead of `application/json`. This inform the browser and any middlewares/proxies that the body should not be buffered and should be sent as early as possible. Then the server starts writing the response as a sequence of small json bodies. The header `X-Accel-Buffering: no` must be passed on the response too.
 
 The first thing sent on the response body will be the function response itself. If an stream is sent from the server, and UUID is generated and that is sent to the client. It will then receive the UUID and create a `Stream` instance tracking it. While there is at least one stream open, the connection will be kept open. Then for every `send()` or `end()` event from the server a new piece of the response body will be sent to the client, triggering the corresponding `Stream` instance. If the client has already closed it, then it will ignore the message. If all streams have been closed, both sides will drop the connection.
 
@@ -95,17 +94,14 @@ This is very very similar to HTTP Server-Sent Events.
 
 Upsides of this implementation:
 
-1. Very light protocol and HTTP native. Should work anywhere.
-
-2. On HTTP/2 the TCP connection is multiplexed with other requests.
+- Very light protocol and HTTP native. Should work anywhere.
+- On HTTP/2 the TCP connection is multiplexed with other requests.
 
 Downsides of this implementation:
 
-1. The client has no way of letting the server now that is closed one particular stream. The server will keep sending messages and the client will keep ignoring them. When all other streams are closed the client will drop the connection (because it knows all streams are closed). Only then the server will understand the streams have been closed and finish them.
-
-2. Not all proxies might understand that this is an SSE connection and might buffer.
-
-3. Does not allow client-side streamming.
+- The client has no way of letting the server now that is closed one particular stream. The server will keep sending messages and the client will keep ignoring them. When all other streams are closed the client will drop the connection (because it knows all streams are closed). Only then the server will understand the streams have been closed and finish them.
+- Not all proxies might understand that this is an SSE connection and might buffer.
+- Does not allow client-side streamming.
 
 ## Alternative implementation
 
@@ -124,13 +120,12 @@ At first this will lose HTTP/2 multiplexing hability (multiple requests being ha
 
 Upsides of this implementation:
 
-1. Full-duplex protocol. Allows client-side streamming.
-
-2. WebSockets are supported pretty much everywhere.
+- Full-duplex protocol. Allows client-side streamming.
+- WebSockets are supported pretty much everywhere.
 
 Downsides of this implementation:
 
-1. Without RFC8441, WebSockets require opening a new TCP connection and performing a new TLS handshake, which is slow. Reusing the same WebSocket for multiple functions can work, but will worsen load balancing.
+- Without RFC8441, WebSockets require opening a new TCP connection and performing a new TLS handshake, which is slow. Reusing the same WebSocket for multiple functions can work, but will worsen load balancing.
 
 ## Alternative implementation 2
 
@@ -138,4 +133,4 @@ Use gRPC as transport layer.
 
 Downsides of this implementation:
 
-1. gRPC uses HTTP/2 for its transport layer, which means it is unable to provide client-side streams on the Web. It has the very same limitations of the first implementation.
+- gRPC uses HTTP/2 for its transport layer, which means it is unable to provide client-side streams on the Web. It has the very same limitations of the first implementation.
