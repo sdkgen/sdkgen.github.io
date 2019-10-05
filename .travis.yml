@@ -1,6 +1,11 @@
+sudo: false
 language: node_js
 node_js:
   - 10
+cache: npm
+branches:
+  only:
+    - src
 script:
   - npx docz build
   - cp .docz/dist/index.html .docz/dist/404.html
@@ -10,5 +15,6 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
+  target_branch: master
   on:
-    branch: master
+    branch: src
