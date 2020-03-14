@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "docz": "^1.3.2",
+    "docz": "^2.2.0",
     "docz-theme-default": "^1.2.0"
   },
   "devDependencies": {},
