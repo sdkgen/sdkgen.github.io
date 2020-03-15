@@ -1,6 +1,24 @@
 ---
-name: Start
+name: Intro
 route: /
 ---
 
-# sdkgen
+**sdkgen** is a tool to help design, implement and maintain good APIs with minimal effort. It is somewhat inspired by SOAP, but embracing modern web standards, like JSON. It provides:
+
+- a language to describe all API endpoints (REST and RPC) and types (strict contracts);
+- a server runtime library to help implementing this API;
+- a client runtime library to help consuming the API;
+- a code generator to help integrate with those libraries;
+
+The protocol itself tries to be simple and to allow a variety of use cases. The sdkgen is not a framework imposing how you should build your application, it is just a tool. All transport capabilities and contained inside the runtime libraries, making it easy to swap.
+
+**Features:**
+
+- Define the objects that will be passed in and out of your Api using primitive types (`string`, `int`, `bigint`, `date`, `uuid`, `xml`, and so on), arrays, enums and nested structures. All types will be checked at runtime for correctness.
+- Define your API contract as RPC endpoints. The user can interact with then with generated clients and with the web playground.
+- Define REST endpoints over those RPC endpoints. The user can call them like any REST API or interact with the generated Swagger.
+- Generate server code from the API description, only the body of your RPC endpoints need to be implemented.
+- GEnerate client code for each of your client types (web, mobile, or other server).
+
+**Learn more:**
+
