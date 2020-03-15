@@ -1,14 +1,13 @@
 sudo: false
 language: node_js
 node_js:
-  - 10
+  - 12
 cache: npm
 branches:
   only:
     - src
 script:
   - npx docz build
-  - cp .docz/dist/index.html .docz/dist/404.html
 deploy:
   local_dir: .docz/dist
   provider: pages
