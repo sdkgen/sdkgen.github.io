@@ -1,0 +1,191 @@
+---
+name: Defining your schema
+route: /schema
+---
+
+# Defining your schema
+
+To generate client targets and server schema, sdkgen provides an expressive language, in which you declare your interfaces, API calls and error treatment, all of this, with automatic type validation. 
+You can also add annotations to generate documentation and REST endpoints to your exposed functions!
+
+
+## Primitive types
+
+In addition to having `string`, `int`, `float` and `bool` (which are exactly what you expect), it also has: 
+
+* `uint` - an unsigned integer.
+* `void` - the absence of any value.
+* `date` - a simple MM/DD/YYYY date type.
+* `datetime` - full date type, with time included, always converted to UTC.
+* `bytes` - a byte buffer, commonly used when uploading files.
+* `money` - an integer for representing money in cents.
+* `bigint` - a way to represent integers bigger than 2^53.
+* `email` - an email address valid value. 
+* `hex` - an hexadecimal number.
+* `base64` -  encoding format for transfering data via text.
+* `url` - [URL](https://www.w3.org/Addressing/URL/url-spec.txt).
+* `xml` - [XML](https://www.w3.org/TR/xml/).
+* `json` - [JSON](https://www.json.org/json-pt.html).
+
+Brazilian utility types:
+
+* `cpf` - personal document number.
+* `cnpj` - companies document number.
+
+## Compound types
+
+To compose types into more complex ones, sdkgen provides a typescript-like syntax:
+
+```
+type UserInfo {
+  firstName: string
+  lastName: string
+  additionalNeeds: string
+  socialName: string
+  cpf: cpf
+  email: string
+  phoneNumber: string
+}
+```
+
+### Spreading compound types
+
+Complex types can also be spread and used by other types: 
+
+```
+type User {
+    id: uuid
+    ...UserInfo
+}
+```
+
+In this case, *User* is transformed into:
+
+```
+type User {
+    id: uuid
+    firstName: string
+    lastName: string
+    additionalNeeds: string
+    socialName: string
+    cpf: cpf
+    email: string
+    phoneNumber: string
+}
+```
+
+
+
+## Enums
+
+In sdkgen, enums are types that consist in a fixed set of strings, behaving very similarly to the other languages and being defined this way:
+
+```
+type State enum {
+    Bahia
+    Rio_de_janeiro
+    Sao_Paulo
+}
+```
+
+You can also define enums inline on compound types:
+
+```
+type User {
+    username: string
+    password: string
+    type: enum {Teacher Student Director}
+}
+```
+
+
+When receiving or sending enum-typed strings, the sdkgen server will validate if the value matches the provided set.
+
+## Lists
+
+To define a list of any type, you can just put `[]` at the of its definition. In this case, foo is a list of strings:
+
+```
+type X {
+    bla: string
+    foo: string[]
+}
+```
+
+Your compound type can also be a list:
+
+```
+type X {
+    bla: string
+    foo: string[]
+}[]
+```
+
+
+## Optional types
+
+To turn your types optional, add `?` after its definition. sdkgen won't complain if an optional type is not present in any context.
+
+```
+type X {
+    bla: string
+    foo: string?
+}
+```
+
+Any sdkgen type can be set as optional:
+
+```
+type Y {
+    bla: User?
+}
+```
+
+## Functions
+
+To define what your clients will get and put into the server, you should describe the functions, their arguments and return types:
+
+```
+fn createUser(info: UserInfo): User
+fn updateUser(info: UserInfo): User
+
+fn removeUser(id: string)
+
+fn getUserHistory(id: string, since: date, until: date): History[]
+```
+
+
+
+## Errors
+
+By default, sdkgen provides the `Fatal` error type, but, you can create your own to make a more specific error throwing to the clients, as you can see:
+
+```
+error InvalidArgument
+error NotFound
+```
+
+## Annotations
+
+### @rest
+
+It is possible to add a @rest annotation to any sdkgen function to have it exposed as a REST endpoint. Arguments can be received as path fragments, as query parameters, as headers and on the body. Parsing and strict type validation is all done for you: 
+
+```
+// Simple get call
+@rest GET /status
+fn getStatus(): string
+
+// Passing argument on body
+@rest POST /users [body {user}]
+fn createNewUser(user: NewUser): User
+
+// Sending custom headers
+@rest GET /posts [header user-agent: {userAgent}] [header accept-language: {lang}] [header x-token: {token}]
+fn getPosts(userAgent: string, lang: string, token: base64): User
+
+// Sending arguments on path adn querystring.
+@rest GET /chats/{chatId}/messages?{since}&{until} [header x-token: {token}]
+fn getMessages(token: base64, chatId: uuid, since: datetime?, until: datetime?): Message[]
+```
+
