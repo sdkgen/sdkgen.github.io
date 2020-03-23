@@ -30,7 +30,7 @@ In addition to having `string`, `int`, `float` and `bool` (which are exactly wha
 Brazilian utility types:
 
 * `cpf` - personal document number.
-* `cnpj` - companies document number.
+* `cnpj` - company document number.
 
 ## Compound types
 
@@ -83,8 +83,8 @@ In sdkgen, enums are types that consist in a fixed set of strings, behaving very
 ```
 type State enum {
     Bahia
-    Rio_de_janeiro
-    Sao_Paulo
+    RioDeJaneiro
+    SaoPaulo
 }
 ```
 
@@ -184,7 +184,7 @@ fn createNewUser(user: NewUser): User
 @rest GET /posts [header user-agent: {userAgent}] [header accept-language: {lang}] [header x-token: {token}]
 fn getPosts(userAgent: string, lang: string, token: base64): User
 
-// Sending arguments on path adn querystring.
+// Sending arguments on path and querystring.
 @rest GET /chats/{chatId}/messages?{since}&{until} [header x-token: {token}]
 fn getMessages(token: base64, chatId: uuid, since: datetime?, until: datetime?): Message[]
 ```
