@@ -8,29 +8,28 @@ route: /schema
 To generate client targets and server schema, sdkgen provides an expressive language, in which you declare your interfaces, API calls and error treatment, all of this, with automatic type validation. 
 You can also add annotations to generate documentation and REST endpoints to your exposed functions!
 
-
 ## Primitive types
 
 In addition to having `string`, `int`, `float` and `bool` (which are exactly what you expect), it also has: 
 
-* `uint` - an unsigned integer.
-* `void` - the absence of any value.
-* `date` - a simple MM/DD/YYYY date type.
-* `datetime` - full date type, with time included, always converted to UTC.
-* `bytes` - a byte buffer, commonly used when uploading files.
-* `money` - an integer for representing money in cents.
-* `bigint` - a way to represent integers bigger than 2^53.
-* `email` - an email address valid value. 
-* `hex` - an hexadecimal number.
-* `base64` -  encoding format for transfering data via text.
-* `url` - [URL](https://www.w3.org/Addressing/URL/url-spec.txt).
-* `xml` - [XML](https://www.w3.org/TR/xml/).
-* `json` - [JSON](https://www.json.org/json-pt.html).
+* `uint` - an unsigned integer
+* `void` - the absence of any value
+* `date` - a simple MM/DD/YYYY date type
+* `datetime` - full date type, with time included, always converted to UTC
+* `bytes` - a byte buffer, commonly used when uploading files
+* `money` - an integer for representing money in cents
+* `bigint` - a way to represent integers bigger than 2^53
+* `email` - an email address valid value
+* `hex` - an hexadecimal number
+* `base64` -  encoding format for transfering data via text
+* `url` - [URL](https://www.w3.org/Addressing/URL/url-spec.txt)
+* `xml` - [XML](https://www.w3.org/TR/xml/)
+* `json` - [JSON](https://www.json.org/json-pt.html)
 
 Brazilian utility types:
 
-* `cpf` - personal document number.
-* `cnpj` - company document number.
+* `cpf` - personal document number
+* `cnpj` - company document number
 
 ## Compound types
 
@@ -74,8 +73,6 @@ type User {
 }
 ```
 
-
-
 ## Enums
 
 In sdkgen, enums are types that consist in a fixed set of strings, behaving very similarly to the other languages and being defined this way:
@@ -94,10 +91,9 @@ You can also define enums inline on compound types:
 type User {
     username: string
     password: string
-    type: enum {Teacher Student Director}
+    type: enum { Teacher Student Director }
 }
 ```
-
 
 When receiving or sending enum-typed strings, the sdkgen server will validate if the value matches the provided set.
 
@@ -106,18 +102,19 @@ When receiving or sending enum-typed strings, the sdkgen server will validate if
 To define a list of any type, you can just put `[]` at the of its definition. In this case, foo is a list of strings:
 
 ```
-type X {
-    bla: string
-    foo: string[]
+type Game {
+    winner: string
+    players: string[]
 }
 ```
 
 Your compound type can also be a list:
 
 ```
-type X {
-    bla: string
-    foo: string[]
+type Car {
+    brand: string
+    model: string
+    owners: string[]
 }[]
 ```
 
@@ -127,17 +124,20 @@ type X {
 To turn your types optional, add `?` after its definition. sdkgen won't complain if an optional type is not present in any context.
 
 ```
-type X {
-    bla: string
-    foo: string?
+type BlogPost {
+    title: string
+    description: string?
+    text: string
 }
 ```
 
 Any sdkgen type can be set as optional:
 
 ```
-type Y {
-    bla: User?
+type Comment {
+    owner: User
+    text: string
+    reactions: Reaction[]?
 }
 ```
 
@@ -153,8 +153,6 @@ fn removeUser(id: string)
 
 fn getUserHistory(id: string, since: date, until: date): History[]
 ```
-
-
 
 ## Errors
 
@@ -188,4 +186,3 @@ fn getPosts(userAgent: string, lang: string, token: base64): User
 @rest GET /chats/{chatId}/messages?{since}&{until} [header x-token: {token}]
 fn getMessages(token: base64, chatId: uuid, since: datetime?, until: datetime?): Message[]
 ```
-
