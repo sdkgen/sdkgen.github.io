@@ -141,6 +141,20 @@ type Comment {
 }
 ```
 
+```
+type Direction enum {
+    Up
+    Down
+    Left
+    Right
+}
+
+type Car {
+    brand: string
+    direction: Direction?
+}
+```
+
 ## Functions
 
 To define what your clients will get and put into the server, you should describe the functions, their arguments and return types:
