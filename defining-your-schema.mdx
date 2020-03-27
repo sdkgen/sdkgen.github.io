@@ -220,4 +220,12 @@ fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64):
 @arg token provide a token in base65
 fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64): User?
 
+// Sending enum like as an argument
+type TypeTransfer enum {
+    internal
+    external
+}
+
+@rest GET /transfer/account?{type}&{account}
+fn getTransfersTypeFromAccount(type: TypeTransfer, account: string)
 ```
