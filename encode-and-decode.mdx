@@ -1,0 +1,51 @@
+---
+name: Encode and Decode JSON Objects
+route: /encode-and-decode
+---
+
+# Behind the scenes
+
+The Sdkgen uses 2 functions to parse JSON objects received through the API calls into Custom Types defined in .sdkgen files. Those functions are `encode` and `decode`
+
+## Decode
+
+Signature:
+```
+decode(typeTable: TypeTable, path: string, type: TypeDescription, value: any)
+```
+* `TypeTable`: generated table containing all Custom Types in the API.
+* `path`: a context for error messages. If the attribute validation fails there will be a message like `Invalid type at path.attr`
+* `type`: name of the Custom Type you want to parse the JSON
+* `value`: the JSON to be convertible
+
+Example:
+
+```
+// Suppose there is a Custom Type named User
+import { api } from "./generated/api";
+const obj = {first_name: "Doug", last_name: "Dog", birthDate: "1998-05-31"};
+const user = decode(api.astJson.typeTable, "user", "User", obj);
+user.birthDate // Date object on 1998 May 31
+```
+
+## Encode
+
+Signature
+```
+encode(typeTable: TypeTable, path: string, type: TypeDescription, value: any): any
+```
+
+* `TypeTable`: generated table containing all Custom Types in the API.
+* `path`: a context for error messages. If the attribute validation fails there will be a message like `Invalid type at path.attr`
+* `type`: name of the Custom Type you want to parse the JSON
+* `value`: your Custom Type that should be converted to JSON
+
+```
+// Suppose there is a Custom Type named User
+import { api } from "./generated/api";
+
+api.fn.processUser = async (ctx, { user }) => {
+    const obj = encode(api.astJson.typeTable, "user", "User", user);
+    obj // JSON object
+};
+```
