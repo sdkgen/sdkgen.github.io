@@ -4,6 +4,7 @@ export default {
         "Intro",
         "Getting Started",
         "Defining your schema",
-        "Encode and Decode"
+        "Encode and Decode",
+        "CLI"
     ]
 };

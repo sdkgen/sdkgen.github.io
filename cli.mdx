@@ -1,0 +1,39 @@
+---
+name: CLI   
+route: /cli
+---
+
+# CLI - Command Line Interface
+
+Tool to help generate files from sdkgen to specific targets.
+
+## Structure
+
+```bash
+sdkgen [source] -o [output] -t [target] 
+```
+
+## Typical Example
+```bash
+sdkgen src/api.sdkgen -o src/api.ts -t typescript_nodeserver 
+```
+
+## Options
+
+| param | type |  |
+| :-- | :-: | :-: |
+| --source | string | Specifies the source file
+| -o, --output | string | Specifies the output file 
+| -t, --target | string | Specifies the target platform and language 
+| -h, --help | string | Display usage guide
+
+## Targets
+
+| param | type |
+| :-- | :-: |
+| --typescript_nodeserver | Server Typescript Node 
+| --typescript_nodeclient | Client Typescript Node 
+| --typescript_web | Typescript Web 
+| --typescript_interfaces | Interfaces Typescript
+| --flutter | Flutter
+| --csharp_server | Server C#
