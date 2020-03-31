@@ -208,10 +208,6 @@ fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64):
 @arg companyId ID from company
 fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64): User?
 
-// Provide the @description to be displayed in the swagger
-@description Get the list of company users
-fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64): User?
-
 // You can use both at the same time
 @description Get the list of company users
 @arg companyId ID from company
