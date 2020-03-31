@@ -140,6 +140,18 @@ type Comment {
     text: string
     reactions: Reaction[]?
 }
+
+type Direction enum {
+    Up
+    Down
+    Left
+    Right
+}
+
+type Car {
+    brand: string
+    direction: Direction?
+}
 ```
 
 ## Functions
@@ -186,4 +198,29 @@ fn getPosts(userAgent: string, lang: string, token: base64): User
 // Sending arguments on path and querystring.
 @rest GET /chats/{chatId}/messages?{since}&{until} [header x-token: {token}]
 fn getMessages(token: base64, chatId: uuid, since: datetime?, until: datetime?): Message[]
+
+// Provide the @description to be displayed in the swagger
+@description Get the list of company users
+fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64): User?
+
+// Provide the @args to be displayed a text for argument in the swagger
+@arg companyId ID from company
+fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64): User?
+
+// You can use both at the same time
+@description Get the list of company users
+@arg companyId ID from company
+@arg since provide a date for the start of the search
+@arg until provide a date for the end of the search
+@arg token provide a token in base64
+fn getUsers(companyId: uuid, since: datetime?, until: datetime?, token: base64): User?
+
+// Sending enum like as an argument
+type TypeTransfer enum {
+    internal
+    external
+}
+
+@rest GET /transfer/account?{type}&{account}
+fn getTransfersTypeFromAccount(type: TypeTransfer, account: string)
 ```
