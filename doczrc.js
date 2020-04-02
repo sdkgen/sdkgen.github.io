@@ -3,8 +3,8 @@ export default {
     menu: [
         "Intro",
         "Getting Started",
+        "CLI",
         "Defining your schema",
-        "Encode and Decode",
-        "CLI"
+        "Encode and Decode"
     ]
 };

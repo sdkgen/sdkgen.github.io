@@ -5,7 +5,11 @@ route: /cli
 
 # CLI - Command Line Interface
 
-Tool to help generate files from sdkgen to specific targets.
+The Sdkgen CLI is a tool to generate code from .sdkgen files to specific targets. It can generate server code from the API description and client code for each client type. The supported clients are TypeScript (Server, Clients and Interfaces), Flutter (Client) and C# (Server).  
+
+## Prerequisites
+- A current/LTS version of [Node.js](https://nodejs.org/) is required. Versions 8, 10 or 12 are supported;
+- The CLI should be installed with **`npm i -g @sdkgen/cli`**;
 
 ## Structure
 
@@ -29,11 +33,10 @@ sdkgen src/api.sdkgen -o src/api.ts -t typescript_nodeserver
 
 ## Targets
 
-| param | type |
-| :-- | :-: |
-| --typescript_nodeserver | Server Typescript Node 
-| --typescript_nodeclient | Client Typescript Node 
-| --typescript_web | Typescript Web 
-| --typescript_interfaces | Interfaces Typescript
-| --flutter | Flutter
-| --csharp_server | Server C#
+| param | type | language | runtime
+| :-- | :-- | :-- | :--
+| typescript_nodeserver | Server | TypeScript | Node.js
+| typescript_nodeclient | Client | TypeScript | Node.js
+| typescript_web | Client | TypeScript | Web Browser 
+| flutter | Client | Dart | Flutter
+| csharp_server | Server | C# | .NET Core
