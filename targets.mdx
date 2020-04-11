@@ -1,0 +1,126 @@
+---
+name: Targets
+route: /targets
+---
+
+# Targets
+
+targets can be generated using the sdkgen CLI, through the following comands:
+
+first, install the CLI
+```
+npm i -g @sdkgen/cli
+```
+then generate the desired target from your [sdkgen schema](/schema)]
+```
+sdkgen path/to/your/schema.sdkgen -o path/to/output/file -t target_identifier
+```
+see the list of suported targets with the respectives identifiers bellow on the [suported targets](#suported-targets) section.
+
+for more CLI insight use `skdgen -h`.
+
+## Suported targets
+
+| Target                 | Indentifier             | Documentation                            |
+| ---------------------- |:-----------------------:| ----------------------------------------:|
+| Typescript node server | `typescript_nodeserver` | [Go to section](#typescript-node-server) |
+| Typescript node client | `typescript_nodeclient` | [Go to section](#typescript-node-client) |
+| Typescript web         | `typescript_web`        | [Go to section](#typescript-web)         |
+| Typescript interfaces  | `typescript_interfaces` | [Go to section](#typescript-interfaces)  |
+| Flutter                | `flutter`               | [Go to section](#flutter)                |
+| C# server              | `csharp_server`         | [Go to section](#c-server)               |
+| Kotlin android         | `kotlin_android`        | [Go to section](#kotlin-android)         |
+
+## Typescript node server
+documentation under development 
+
+## Typescript node client
+documentation under development 
+
+## Typescript Web
+the typescript web target is intended to be used in the browser, see below how to use it. 
+
+### Generating code 
+to generate the web target you will need a [sdkgen definition file](/schema), for purpose of examplification we will use the following schema:
+```
+// exampleSchema.sdkgen
+
+type UserInfo {
+  firstName: string
+  lastName: string
+  socialName: string
+  email: string
+  phoneNumber: string
+}
+type User {
+    id: uuid
+    ...UserInfo
+}
+
+fn createUser(info: UserInfo): User
+fn updateUser(info: UserInfo): User
+fn removeUser(id: string)
+```
+ with the description file in hands use the CLI to generate the target:
+
+```
+sdkgen exampleSchema.sdkgen -o generatedTargetFile.ts -t typescript_web
+```
+after that a `generatedTargetFile.ts` will be created, in this file contents will be found all the type definitions generated based on the provided schema and a class named `apiClient` wich will provide the methods to invoque the functions defined on the schema.
+
+before we use `apiClient` to connect with the api we need to install "@sdkgen/browser-runtime" (it's a dependence to the file we just generated)
+```
+npm i @sdkgen/browser-runtime
+```
+
+then we can invoque the `apiClient` from our generated file
+
+```typescript
+// index.ts
+import { ApiClient } from "./generatedTargetFile";
+
+// setup the endpoint and create a instance of apiClient
+const API = new APIClient("https://nice.api.endpoint.com");
+
+// invoque functions defined on the schema
+API.createUser({
+    firstName: "João",
+    lastName: "Silveira",
+    socialName: "Jão",
+    email: "jao.silveira88@email.com",
+    phoneNumber: "+55 (044) 9 9999-9999" 
+}).then(rtr => { 
+    // retuned content
+    console.log("this is the return of the function call... ", rtr);
+}).catch(err => { 
+    // error handling
+    console.err("ops, something went wrong... ", err);
+});
+
+```
+
+that's how simple it is to setup the typescript web target.
+
+### Methods
+documentation under development 
+
+### Type Definition Reference
+documentation under development 
+
+### Hooks
+documentation under development 
+
+### Errors
+documentation under development 
+
+## Typescript interfaces
+documentation under development 
+
+## Flutter
+documentation under development 
+
+## C# Server
+documentation under development 
+
+## Kotlin Android
+documentation under development 

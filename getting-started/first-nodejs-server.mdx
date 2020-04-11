@@ -3,7 +3,7 @@ name: First Node.js Server
 menu: Getting Started
 ---
 
-# Install sdkgen's cli
+## Install sdkgen's cli
 
 First of all you need Node.js ready on your machine. Versions 8, 10 or 12 are supported (all stable maintained release channels). Check for it here: https://nodejs.org/en/download/
 
@@ -13,7 +13,7 @@ Install the global CLI:
 npm i -g @sdkgen/cli
 ```
 
-# Create an API description
+## Create an API description
 
 Create an `api.sdkgen` to describe your API. For example:
 
@@ -38,7 +38,7 @@ You can then generate the TypeScript source for this description using:
 sdkgen api.sdkgen -o api.ts -t typescript_nodeserver
 ```
 
-# Create base project
+## Create base project
 
 Let's start a new project with TypeScript:
 
@@ -74,7 +74,7 @@ const server = new SdkgenHttpServer(api, {});
 server.listen(8000);
 ```
 
-# Run the project
+## Run the project
 
 Build and run it:
 
