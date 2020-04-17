@@ -66,9 +66,9 @@ fn removeUser(id: string)
 ```
 sdkgen exampleSchema.sdkgen -o generatedTargetFile.ts -t typescript_web
 ```
-after that a `generatedTargetFile.ts` will be created, in this file contents will be found all the type definitions generated based on the provided schema and a class named `apiClient` wich will provide the methods to invoque the functions defined on the schema.
+after that a `generatedTargetFile.ts` will be created, in this file contents will be found all the type definitions generated based on the provided schema and a class named `ApiClient` wich will provide the methods to invoque the functions defined on the schema.
 
-before we use `apiClient` to connect with the api we need to install "@sdkgen/browser-runtime" (it's a dependence to the file we just generated)
+before we use `ApiClient` to connect with the api we need to install "`@sdkgen/browser-runtime`", for more info about the specifics of the runtime see the [runtime documentation](/runtimes#browser-runtime)
 ```
 npm i @sdkgen/browser-runtime
 ```
@@ -101,16 +101,25 @@ API.createUser({
 
 that's how simple it is to setup the typescript web target.
 
-### Methods
-documentation under development 
+#### function calls
 
-### Type Definition Reference
-documentation under development 
+function calls defined the sdkgen schema will be avaliable as `ApiClient` methods, each method receices argumets as a object and returns a promise wutch resolves to result.
 
-### Hooks
-documentation under development 
+#### Type Definition Reference
 
-### Errors
+| Sdkgen notation                                | Typescript equivalent   |
+| ---------------------------------------------- |:-----------------------:|
+| uuid, base64, email, cpf, cnpj, hex, url, xml  | string                  |
+| uint, money                                    | number                  |
+| void                                           | void                    |
+| date, datetime                                 | Date                    |
+| bytes                                          | Buffer                  |
+| bigint                                         | BigInt                  |
+| json                                           | any                     |
+
+**note:** optional notation allow the type to be also be null, meaning `uint` will be tranlated to `number` and `uint?` will be translated to `number | null`
+
+#### Errors
 documentation under development 
 
 ## Typescript interfaces

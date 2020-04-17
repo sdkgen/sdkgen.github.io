@@ -1,0 +1,37 @@
+---
+name: Runtimes
+route: /runtimes
+---
+
+# Runtimes
+
+## browser-runtime 
+
+#### Request Failure
+
+requests will fail on those conditions:
+
+1. if the server returned a error
+1. if XMLHttpRequest fail
+1. if the arguments sent does not obey the schema
+
+in this last case, the request will not even be made.
+ 
+#### Hooks
+
+there are two hooks avalible:
+
+1. `successHook`, triggered everytime a function call succeeds 
+1. `errorHook`, triggerred everytime a function call din't succeeds
+
+those hooks can be found in `ApiClient` and should be used as such:
+```typescript
+code code code
+```
+
+#### Usage of localstorage
+
+the browser runtime uses the localstorage to store the deviceId, this information will be stored on the key `deviceId`
+
+
+## android-runtime
