@@ -1,0 +1,22 @@
+---
+name: Common Issues
+route: /common-issues
+---
+
+# Common Issues
+
+## Requests aren't received when using WSL2
+
+### Observed Issue
+
+Although `new SdkgenHttpServer.listen(port)` is being called and outputs `Listening on :::PORT` or similar to console, no connection can be stablished. Hence, no requests are received.
+
+### Resolution
+
+WSL2 ports aren't always forwarded. Two solutions are appliable:
+- Use a default forwarded port (`3000` is most likely one of those);
+- Add a new port forwarding rule that includes the port you're using. Remember to also add this rule to Firewall Rules, otherwise it's probably going to be blocked.
+
+### Additional Information
+
+This is a known issue with WSL2 as seen on it's [official repository](https://github.com/microsoft/WSL/issues/4150). The reason this happens is WSL2 uses a completely new network system architecture, "changing from the default bridged network adapter to a hyper-v virtual network adapter". You can find more Information [here](https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723).
