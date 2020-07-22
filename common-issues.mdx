@@ -15,8 +15,8 @@ Although `new SdkgenHttpServer.listen(port)` is being called and outputs `Listen
 
 WSL2 ports aren't always forwarded. Two solutions are appliable:
 - Use a default forwarded port (`3000` is most likely one of those);
-- Add a new port forwarding rule that includes the port you're using. Remember to also add this rule to Firewall Rules, otherwise it's probably going to be blocked.
+- Add a new port forwarding rule that includes the port you're using. Remember to also add this rule to Firewall Rules, otherwise it's probably going to be blocked. You can easily achieve this through the instructions seen [here](https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723).
 
 ### Additional Information
 
-This is a known issue with WSL2 as seen on it's [official repository](https://github.com/microsoft/WSL/issues/4150). The reason this happens is WSL2 uses a completely new network system architecture, "changing from the default bridged network adapter to a hyper-v virtual network adapter". You can find more Information [here](https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723).
+This is a known issue with WSL2 as seen on its [official repository](https://github.com/microsoft/WSL/issues/4150). The reason this happens is WSL2 uses a completely new network system architecture, "changing from the default bridged network adapter to a hyper-v virtual network adapter". You can find more information [here](https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723).
