@@ -7,22 +7,22 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://sdkgen.github.io/pr/120/">
+        <link rel="canonical" href="https://sdkgen.github.io/pr/120/descrevendo-api/">
       
       
-      <link rel="shortcut icon" href="logo.png">
+      <link rel="shortcut icon" href="../logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
-        <title>sdkgen</title>
+        <title>Descrevendo uma API - sdkgen</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.bc7e593a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab28b872.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
         
           
           
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#conhecendo-o-sdkgen" class="md-skip">
+        <a href="#descrevendo-uma-api" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -77,7 +77,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://sdkgen.github.io/pr/120" title="sdkgen" class="md-header-nav__button md-logo" aria-label="sdkgen">
       
-  <img src="logo.png" alt="logo">
+  <img src="../logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Conhecendo o sdkgen
+              Descrevendo uma API
             
           </span>
         </div>
@@ -163,7 +163,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://sdkgen.github.io/pr/120" title="sdkgen" class="md-nav__button md-logo" aria-label="sdkgen">
       
-  <img src="logo.png" alt="logo">
+  <img src="../logo.png" alt="logo">
 
     </a>
     sdkgen
@@ -188,6 +188,30 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Conhecendo o sdkgen
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../primeiro-projeto/" class="md-nav__link">
+      Primeiro projeto (em Node.js)
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -199,12 +223,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Conhecendo o sdkgen
+        Descrevendo uma API
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="." class="md-nav__link md-nav__link--active">
-      Conhecendo o sdkgen
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Descrevendo uma API
     </a>
     
       
@@ -221,15 +245,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recursos" class="md-nav__link">
-    Recursos
+  <a href="#tipos-primitivos" class="md-nav__link">
+    Tipos primitivos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caracteristicas" class="md-nav__link">
-    Características
+  <a href="#modificadores-de-tipo" class="md-nav__link">
+    Modificadores de tipo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-compostos" class="md-nav__link">
+    Tipos compostos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enum" class="md-nav__link">
+    Enum
   </a>
   
 </li>
@@ -238,30 +276,6 @@
   
 </nav>
     
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="primeiro-projeto/" class="md-nav__link">
-      Primeiro projeto (em Node.js)
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="descrevendo-api/" class="md-nav__link">
-      Descrevendo uma API
-    </a>
   </li>
 
     
@@ -289,15 +303,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recursos" class="md-nav__link">
-    Recursos
+  <a href="#tipos-primitivos" class="md-nav__link">
+    Tipos primitivos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caracteristicas" class="md-nav__link">
-    Características
+  <a href="#modificadores-de-tipo" class="md-nav__link">
+    Modificadores de tipo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-compostos" class="md-nav__link">
+    Tipos compostos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enum" class="md-nav__link">
+    Enum
   </a>
   
 </li>
@@ -314,35 +342,130 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/sdkgen/sdkgen/edit/master/docs/index.md" title="Editar esta página" class="md-content__button md-icon">
+                  <a href="https://github.com/sdkgen/sdkgen/edit/master/docs/descrevendo-api.md" title="Editar esta página" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="conhecendo-o-sdkgen">Conhecendo o sdkgen</h1>
-<p>O <strong>sdkgen</strong> é uma ferramenta voltada para desenhar e implementar API's ricas recursos, mas com o mínimo de esforço para o desenvolvedor. O fluxo de trabalho envolve descrever os endpoints e tipos da API em uma linguagem também chamada "sdkgen". Com essas descrições é possível gerar código para utilizar como servidor ou como cliente desta API, ambos os lados provendo garantias fortes de corretude dos dados trafegados.</p>
-<h2 id="recursos">Recursos</h2>
-<ul>
-<li>Linguagem de descrição do contrato da API com tipagem forte.</li>
-<li>Bibliotecas para uso no servidor, facilitando a implementação da API. Atualmente disponível em Node.js e .NET Core.</li>
-<li>Bibliotecas para uso no cliente, facilitando o consumo da API, com suporte à Web, Android nativo, Node.js e Flutter.</li>
-<li>Um playground interativo para explorar e realizar chamadas.</li>
-<li>Criação de endpoints em formato padrão REST, incluindo Swagger automático com 1 linha.</li>
-</ul>
-<h2 id="caracteristicas">Características</h2>
-<p>O principal foco do sdkgen está na simplicidade de uso e de entendimento, tentando sempre não causar surpresas e lidar com o maior número possível de detalhes por conta própria. Dito isso, o sdkgen se limita a ser um protocolo de transporte (assim como gRPC, REST ou GraphQL são), não interferindo na arquitetura do seu projeto.</p>
-<p>A linguagem do sdkgen permite descrever o contrato da sua API, por exemplo:</p>
-<div class="highlight"><pre><span></span><code>type User {
-    id: uuid
-    email: string
-    name: string
+                <h1 id="descrevendo-uma-api">Descrevendo uma API</h1>
+<p>API's do sdkgen são descritas em um arquivo <code>.sdkgen</code>. O objetivo desta descrição é firmar um contrato claro entre o que um front-end pode solicitar e receber e quais requisições o back-end deve tratar. Todos os dados transferidos pela API precisam respeitar este contrato rigorosamente. No fim, também funciona como documentação.</p>
+<h2 id="tipos-primitivos">Tipos primitivos</h2>
+<p>O sdkgen possui alguns tipos primitivos, com diferentes regras e características.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>string</code></td>
+<td>Um texto livre, potencialmente de múltiplas linhas, codificado como UTF-8.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>Um número inteiro de 32 bits, no intervalo de -2147483648 até 2147483647.</td>
+</tr>
+<tr>
+<td><code>uint</code></td>
+<td>Um número inteiro não negativo, no intervalo de 0 até 4294967295.</td>
+</tr>
+<tr>
+<td><code>bigint</code></td>
+<td>Um número inteiro sem limite de precisão. Na maioria das plataformas este tipo é mais custoso.</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>Um número de ponto flutuante de 64 bits, similar ao <code>double</code> do C.</td>
+</tr>
+<tr>
+<td><code>money</code></td>
+<td>Um número inteiro com precisão extendida, mas performático. Está no intervalo de -9007199254740991 a 9007199254740991. Útil para operações financeiras</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>Ou <code>true</code> ou <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>json</code></td>
+<td>Um valor JSON qualquer, incluindo objetos, arrays, strings, números e boleanos, em qualquer profundidade. Note que embora <code>null</code> possa aparecer dentro de um objeto ou array, o valor deste campo não pode ser <code>null</code> diretamente. Para isso utilize <code>json?</code>.</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Representa conceitualmente uma data do calendário Gregoriano. Essa mesma data pode representar diferentes momento no tempo a depender da timezone. Para especificar um ponto no tempo utilize <code>datetime</code>.</td>
+</tr>
+<tr>
+<td><code>datetime</code></td>
+<td>Representa um instante no tempo com precisão de milisegundos. Este instante será sempre traduzido para a time zone local do recebedor da mensagem.</td>
+</tr>
+<tr>
+<td><code>bytes</code></td>
+<td>Uma sequencia arbitrária de bytes de qualquer comprimento. Pode ser utilizado para tráfego de dados binários.</td>
+</tr>
+<tr>
+<td><code>base64</code></td>
+<td>Similar a uma <code>string</code>, mas necessariamente com uma codificação Base 64 válida.</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>Similar a uma <code>string</code>, mas contendo uma URL válida.</td>
+</tr>
+<tr>
+<td><code>hex</code></td>
+<td>Similar a uma <code>string</code>, mas contendo uma quantidade par de caracteres hexadecimais, útil para representar bytes.</td>
+</tr>
+<tr>
+<td><code>uuid</code></td>
+<td>Similar a uma <code>string</code>, mas contendo um UUID válido.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Similar a uma <code>string</code>, mas contendo um email válido.</td>
+</tr>
+<tr>
+<td><code>xml</code></td>
+<td>Similar a uma <code>string</code>, mas contendo um XML válido.</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td>Similar a uma <code>string</code>, mas contendo um HTML válido.</td>
+</tr>
+<tr>
+<td><code>cpf</code></td>
+<td>Similar a uma <code>string</code>, mas contendo um CPF válido.</td>
+</tr>
+<tr>
+<td><code>cnpj</code></td>
+<td>Similar a uma <code>string</code>, mas contendo um CNPJ válido.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="modificadores-de-tipo">Modificadores de tipo</h2>
+<p>O sdkgen possui dois modificadores que podem ser sufixados em qualquer tipo: <code>?</code> e <code>[]</code>.</p>
+<p>Todos os tipos são por padrão requeridos, com <code>null</code> não sendo um valor válido para nenhum deles. Um tipo pode se tornar nulável ao ser sufixado com <code>?</code>. Nesse caso ele retêm o seu comportamento original com a adição de que <code>null</code> se torna um valor aceitável. Por exemplo: <code>string?</code> aceita qualquer texto livre ou <code>null</code>.</p>
+<p>O modificador <code>[]</code> pode ser adicionado ao final de qualquer tipo para criar uma lista deste tipo (um <em>array</em>, na maioria das linguagens). Estas listas podem ter zero ou mais repetições deste tipo. Por exemplo: <code>cpf[]</code> denota uma lista de CPF's válidos.</p>
+<p>Esses dois modificadores podem ser combinados e repetidos livremente. Alguns exemplos: <code>int[]?</code> significa ou <code>null</code> ou uma lista de <code>int</code>'s. <code>string[][]</code> significa uma lista de listas de <code>string</code>'s. <code>bool?[]</code> significa uma lista de ou <code>true</code> ou <code>false</code> ou <code>null</code>.</p>
+<h2 id="tipos-compostos">Tipos compostos</h2>
+<p>Objetos compostos podem ser construídos, similar a classes, interfaces ou estruturas em outras linguagens. A sintaxe vem na forma de uma sequência de campos entre chaves, onde cada campo possui um nome e um tipo. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>{
+  name: string
+  age: uint
 }
-
-fn login(email: string, password: string): User
-fn logout()
-fn me(): User
 </code></pre></div>
-<p>Alguns tipos primitivos já estão inclusos (como <code>string</code> e <code>uuid</code>), mas você pode definir tipos adicionais como <code>User</code> acima. Há suporte para listas e opcionais também. Por fim funções são definidas recebendo valores como argumentos e opcionalmente retornando dados. A descrição segue o formato de RPC (Remote Procedure Call) em que os clientes da API chamam essas funções, recebendo as respostas de forma assincrona. No servidor o corpo dessas funções deve ser implementado. Todos os dados trafegados são validados nas duas pontas para garantir corretude.</p>
+<p>Os campos podem vir em qualquer ordem desde de que não haja repetição. Qualquer tipo é válido em um campo, incluindo optionais, listas ou outros objetos. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>{
+  id: uuid
+  name: string
+  avatar: url?
+  friends: {
+    id: uuid
+    name: string
+  }[]
+}
+</code></pre></div>
+<h2 id="enum">Enum</h2>
+<p>Em adição aos tipos anteriores um <code>enum</code> representa um conjunto limitado de possibilidades de valores. Por padrão os</p>
                 
               
               
@@ -361,20 +484,20 @@ fn me(): User
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-        
-          <a href="primeiro-projeto/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../primeiro-projeto/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
-                  Próximo
+                  Anterior
                 </span>
                 Primeiro projeto (em Node.js)
               </div>
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
           </a>
+        
         
       </nav>
     </div>
@@ -411,15 +534,15 @@ fn me(): User
       
     </div>
     
-      <script src="assets/javascripts/vendor.6a3d08fc.min.js"></script>
-      <script src="assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "..",
           features: ['navigation.instant', 'toc.autohide'],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
