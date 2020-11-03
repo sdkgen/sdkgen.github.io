@@ -365,6 +365,44 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Aprofundando
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Aprofundando" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Aprofundando
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aprofundando/datas/" class="md-nav__link">
+      date e datetime
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../faq/" class="md-nav__link">
       Problemas comuns
@@ -734,7 +772,7 @@ type User {
   friends: BasicUser[]
 }
 </code></pre></div>
-<p>Um tipo pode conter múltiplos spreads. Caso um campo exista tanto no tipo atual quanto vindo do spread, o campo vindo do spread será utilizado. Caso um mesmo campo apareça em mais de um spread, o último na ordem em que foi escrito apareça. Note que isso significa que um spread sempre substitui o campo do tipo, em caso de conflito. Exemplo:</p>
+<p>Um tipo pode conter múltiplos spreads. Caso um campo exista tanto no tipo atual quanto vindo do spread, o campo vindo do spread será utilizado. Caso um mesmo campo apareça em mais de um spread, a última ocorrência prevalecerá. Note que isso significa que um spread sempre substitui o campo do tipo, em caso de conflito. Exemplo:</p>
 <div class="highlight"><pre><span></span><code>type A { foo: int }
 type B { foo: string }
 type C { bar: int }
@@ -799,13 +837,13 @@ fn getUser(id: uuid): User
           </a>
         
         
-          <a href="../faq/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../aprofundando/datas/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
-                Problemas comuns
+                date e datetime
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
