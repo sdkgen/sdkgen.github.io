@@ -341,13 +341,13 @@ npx tsc --init -t esnext
 </code></pre></div>
 <p>O próximo passo será criar um arquivo de descrição da API. Nele você irá escrever todos os tipos customizados e as funções de sua API. Vamos nomear de <code>api.sdkgen</code>:</p>
 <div class="highlight"><pre><span></span><code>type Post {
-    id: uuid
-    title: string
-    body: string
-    createdAt: datetime
-    author: {
-        name: string
-    }
+  id: uuid
+  title: string
+  body: string
+  createdAt: datetime
+  author: {
+    name: string
+  }
 }
 
 fn getPost(id: uuid): Post?

@@ -577,7 +577,7 @@
 </tr>
 <tr>
 <td><code>bytes</code></td>
-<td>Uma sequencia arbitrária de bytes de qualquer comprimento. Pode ser utilizado para tráfego de dados binários.</td>
+<td>Uma sequência arbitrária de bytes de qualquer comprimento. Pode ser utilizado para tráfego de dados binários.</td>
 </tr>
 <tr>
 <td><code>base64</code></td>
@@ -597,7 +597,7 @@
 </tr>
 <tr>
 <td><code>email</code></td>
-<td>Similar a uma <code>string</code>, mas contendo um email válido.</td>
+<td>Similar a uma <code>string</code>, mas contendo um e-mail válido.</td>
 </tr>
 <tr>
 <td><code>xml</code></td>
@@ -641,7 +641,7 @@
 }
 </code></pre></div>
 <h3 id="enum">Enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h3>
-<p>Em adição aos tipos anteriores um <code>enum</code> representa um conjunto limitado de possibilidades de valores, similar as enumerações em outras linguagens. A sintaxe inicia com a palavra chave <code>enum</code>, seguida por uma sequencia de palavras entre chaves, separadas por espaços ou quebras de linha. Por exemplo:</p>
+<p>Em adição aos tipos anteriores um <code>enum</code> representa um conjunto limitado de possibilidades de valores, similar as enumerações em outras linguagens. A sintaxe inicia com a palavra chave <code>enum</code>, seguida por uma sequência de palavras entre chaves, separadas por espaços ou quebras de linha. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>enum {
   sent
   received
@@ -682,13 +682,13 @@
 
 type User {
   id: uuid
-  type: Type
+  type: UserType
   name: string
 }
 </code></pre></div>
 <p>Dessa maneira tipos podem ser combinados e utilizados múltiplas vezes sem repetição. Um mesmo nome pode ser declarado mais de uma vez, desde que todas as declarações sejam idênticas. A ordem das declarações não tem importância (a declaração do tipo pode aparecer depois do seu uso). Tipos, no entanto, não podem ser recursivos.</p>
 <h3 id="funcoes">Funções<a class="headerlink" href="#funcoes" title="Permanent link">&para;</a></h3>
-<p>A descrição das funções é provavelmente a parte mais importante da sua API. Toda função possui um nome, uma lista de argumentos e opcionalmente um tipo de retorno. Todas as funções descritas estarão expostas para serem chamadas por seus usuários, cabendo à implementação de usa API o trabalho de autenticar e autorizar acessos. Cada função deve possuir um nome claro que indique seu funcionamento, geralmente iniciando com um verbo.</p>
+<p>A descrição das funções é provavelmente a parte mais importante da sua API. Toda função possui um nome, uma lista de argumentos e opcionalmente um tipo de retorno. Todas as funções descritas estarão expostas para serem chamadas por seus usuários, cabendo à implementação de sua API o trabalho de autenticar e autorizar acessos. Cada função deve possuir um nome claro que indique seu funcionamento, geralmente iniciando com um verbo.</p>
 <p>Exemplo da sintaxe:</p>
 <div class="highlight"><pre><span></span><code>fn addNumbers(first: int, second: int): int
 </code></pre></div>
@@ -699,13 +699,13 @@ type User {
 <div class="highlight"><pre><span></span><code>error InvalidArgument
 error NotFound
 </code></pre></div>
-<p>A implementação do servidor poderá lançar esses error ao longo da execução e estes serão transmitidos ao cliente junto a uma mensagem de texto livre, de forma que o cliente possa tratar.</p>
+<p>A implementação do servidor poderá lançar esses erros ao longo da execução e estes serão transmitidos ao cliente junto a uma mensagem de texto livre, de forma que o cliente possa tratar.</p>
 <p>Toda API sdkgen possui um erro implícito de nome <code>Fatal</code>. Qualquer erro que seja lançado no servidor que não seja um dos erros descritos no contrato da API será convertido em um erro de tipo <code>Fatal</code> antes de ser encaminhado ao cliente. Idealmente uma API nunca deve deixar escapar um erro <code>Fatal</code>.</p>
 <h3 id="importando-outros-arquivos">Importando outros arquivos<a class="headerlink" href="#importando-outros-arquivos" title="Permanent link">&para;</a></h3>
 <p>Conforme uma API se torna maior e mais complexa passa a ser interessante dividir em múltiplos arquivos. Para isso a palavra chave <code>import</code> pode ser utilizada. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>import &quot;../user&quot;
 </code></pre></div>
-<p>O significado desta linha é buscar um arquivo chamado <code>../name.sdkgen</code> a partir da pasta atual. O <code>..</code> neste caso significa "a pasta acima da pasta atual". Qualquer caminho relativo ao arquivo atual pode ser passado e a extensão do arquivo ( <code>.sdkgen</code>) não deve ser mencionada. O comportamento é diretamente equivalente a copiar o conteúdo do arquivo e colar dentro do arquivo atual, na posição do import. Cuidado para não incluir o mesmo arquivo mais de uma vez.</p>
+<p>O significado desta linha é buscar um arquivo chamado <code>../user.sdkgen</code> a partir da pasta atual. O <code>..</code> neste caso significa "a pasta acima da pasta atual". Qualquer caminho relativo ao arquivo atual pode ser passado e a extensão do arquivo ( <code>.sdkgen</code>) não deve ser mencionada. O comportamento é diretamente equivalente a copiar o conteúdo do arquivo e colar dentro do arquivo atual, na posição do import. Cuidado para não incluir o mesmo arquivo mais de uma vez.</p>
 <h2 id="composicao-de-tipos">Composição de tipos<a class="headerlink" href="#composicao-de-tipos" title="Permanent link">&para;</a></h2>
 <p>Tipos podem ser criados a partir de outros tipos já existentes. Atualmente o sdkgen suporta apenas um operador neste sentido, o spread.</p>
 <h3 id="spreads">Spreads<a class="headerlink" href="#spreads" title="Permanent link">&para;</a></h3>

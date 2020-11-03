@@ -332,7 +332,7 @@
                 
                 
                 <h1 id="conhecendo-o-sdkgen">Conhecendo o sdkgen<a class="headerlink" href="#conhecendo-o-sdkgen" title="Permanent link">&para;</a></h1>
-<p>O <strong>sdkgen</strong> é uma ferramenta voltada para desenhar e implementar API's ricas recursos, mas com o mínimo de esforço para o desenvolvedor. O fluxo de trabalho envolve descrever os endpoints e tipos da API em uma linguagem também chamada "sdkgen". Com essas descrições é possível gerar código para utilizar como servidor ou como cliente desta API, ambos os lados provendo garantias fortes de corretude dos dados trafegados.</p>
+<p>O <strong>sdkgen</strong> é uma ferramenta voltada para desenhar e implementar API's ricas em recursos, mas com o mínimo de esforço para o desenvolvedor. O fluxo de trabalho envolve descrever os endpoints e tipos da API em uma linguagem também chamada <em>sdkgen</em>. Com essas descrições é possível gerar código para utilizar como servidor ou como cliente desta API, ambos os lados provendo garantias fortes de corretude dos dados trafegados.</p>
 <h2 id="recursos">Recursos<a class="headerlink" href="#recursos" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Linguagem de descrição do contrato da API com tipagem forte.</li>
@@ -345,9 +345,9 @@
 <p>O principal foco do sdkgen está na simplicidade de uso e de entendimento, tentando sempre não causar surpresas e lidar com o maior número possível de detalhes por conta própria. Dito isso, o sdkgen se limita a ser um protocolo de transporte (assim como gRPC, REST ou GraphQL são), não interferindo na arquitetura do seu projeto.</p>
 <p>A linguagem do sdkgen permite descrever o contrato da sua API, por exemplo:</p>
 <div class="highlight"><pre><span></span><code>type User {
-    id: uuid
-    email: string
-    name: string
+  id: uuid
+  email: string
+  name: string
 }
 
 fn login(email: string, password: string): User
