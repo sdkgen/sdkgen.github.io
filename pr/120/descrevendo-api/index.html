@@ -327,6 +327,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#composicao-de-tipos" class="md-nav__link">
+    Composição de tipos
+  </a>
+  
+    <nav class="md-nav" aria-label="Composição de tipos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spreads" class="md-nav__link">
+    Spreads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exemplo-final" class="md-nav__link">
     Exemplo final
   </a>
@@ -337,6 +357,18 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
+      Problemas comuns
+    </a>
   </li>
 
     
@@ -446,6 +478,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#composicao-de-tipos" class="md-nav__link">
+    Composição de tipos
+  </a>
+  
+    <nav class="md-nav" aria-label="Composição de tipos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spreads" class="md-nav__link">
+    Spreads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exemplo-final" class="md-nav__link">
     Exemplo final
   </a>
@@ -505,7 +557,7 @@
 </tr>
 <tr>
 <td><code>money</code></td>
-<td>Um número inteiro com precisão extendida, mas performático. Está no intervalo de -9007199254740991 a 9007199254740991. Útil para operações financeiras</td>
+<td>Um número inteiro com precisão estendida, mas performático. Está no intervalo de -9007199254740991 a 9007199254740991. Útil para operações financeiras</td>
 </tr>
 <tr>
 <td><code>bool</code></td>
@@ -521,7 +573,7 @@
 </tr>
 <tr>
 <td><code>datetime</code></td>
-<td>Representa um instante no tempo com precisão de milisegundos. Este instante será sempre traduzido para a time zone local do recebedor da mensagem.</td>
+<td>Representa um instante no tempo com precisão de milissegundos. Este instante será sempre traduzido para o fuso horário local do recebedor da mensagem.</td>
 </tr>
 <tr>
 <td><code>bytes</code></td>
@@ -577,7 +629,7 @@
   age: uint
 }
 </code></pre></div>
-<p>Os campos podem vir em qualquer ordem desde de que não haja repetição. Qualquer tipo é válido em um campo, incluindo optionais, listas ou outros objetos. Por exemplo:</p>
+<p>Os campos podem vir em qualquer ordem desde de que não haja repetição. Qualquer tipo é válido em um campo, incluindo opcionais, listas ou outros objetos. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>{
   id: uuid
   name: string
@@ -634,7 +686,7 @@ type User {
   name: string
 }
 </code></pre></div>
-<p>Dessa maneira tipos podem ser combinados e utilizados multiplas vezes sem repetição. Um mesmo nome pode ser declarado mais de uma vez, desde que todas as declarações sejam idênticas. A ordem das declarações não tem importância (a declaração do tipo pode aparecer depois do seu uso). Tipos, no entanto, não podem ser recursivos.</p>
+<p>Dessa maneira tipos podem ser combinados e utilizados múltiplas vezes sem repetição. Um mesmo nome pode ser declarado mais de uma vez, desde que todas as declarações sejam idênticas. A ordem das declarações não tem importância (a declaração do tipo pode aparecer depois do seu uso). Tipos, no entanto, não podem ser recursivos.</p>
 <h3 id="funcoes">Funções<a class="headerlink" href="#funcoes" title="Permanent link">&para;</a></h3>
 <p>A descrição das funções é provavelmente a parte mais importante da sua API. Toda função possui um nome, uma lista de argumentos e opcionalmente um tipo de retorno. Todas as funções descritas estarão expostas para serem chamadas por seus usuários, cabendo à implementação de usa API o trabalho de autenticar e autorizar acessos. Cada função deve possuir um nome claro que indique seu funcionamento, geralmente iniciando com um verbo.</p>
 <p>Exemplo da sintaxe:</p>
@@ -648,12 +700,56 @@ type User {
 error NotFound
 </code></pre></div>
 <p>A implementação do servidor poderá lançar esses error ao longo da execução e estes serão transmitidos ao cliente junto a uma mensagem de texto livre, de forma que o cliente possa tratar.</p>
-<p>Toda API sdkgen possui um erro implicito de nome <code>Fatal</code>. Qualquer erro que seja lançado no servidor que não seja um dos erros descritos no contrato da API será convertido em um erro de tipo <code>Fatal</code> antes de ser encaminhado ao cliente. Idealmente uma API nunca deve deixar escapar um erro <code>Fatal</code>.</p>
+<p>Toda API sdkgen possui um erro implícito de nome <code>Fatal</code>. Qualquer erro que seja lançado no servidor que não seja um dos erros descritos no contrato da API será convertido em um erro de tipo <code>Fatal</code> antes de ser encaminhado ao cliente. Idealmente uma API nunca deve deixar escapar um erro <code>Fatal</code>.</p>
 <h3 id="importando-outros-arquivos">Importando outros arquivos<a class="headerlink" href="#importando-outros-arquivos" title="Permanent link">&para;</a></h3>
 <p>Conforme uma API se torna maior e mais complexa passa a ser interessante dividir em múltiplos arquivos. Para isso a palavra chave <code>import</code> pode ser utilizada. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>import &quot;../user&quot;
 </code></pre></div>
-<p>O significado desta linha é buscar um arquivo chamado <code>../name.sdkgen</code> a partir da pasta atual. O <code>..</code> neste caso significa "a pasta acima da pasta atual". Qualquer caminho relativo ao arquivo atual pode ser passado e a extenção do arquivo ( <code>.sdkgen</code>) não deve ser mencionada. O comportamento é diretamente equivalente a copiar o conteúdo do arquivo e colar dentro do arquivo atual, na posição do import. Cuidado para não incluir o mesmo arquivo mais de uma vez.</p>
+<p>O significado desta linha é buscar um arquivo chamado <code>../name.sdkgen</code> a partir da pasta atual. O <code>..</code> neste caso significa "a pasta acima da pasta atual". Qualquer caminho relativo ao arquivo atual pode ser passado e a extensão do arquivo ( <code>.sdkgen</code>) não deve ser mencionada. O comportamento é diretamente equivalente a copiar o conteúdo do arquivo e colar dentro do arquivo atual, na posição do import. Cuidado para não incluir o mesmo arquivo mais de uma vez.</p>
+<h2 id="composicao-de-tipos">Composição de tipos<a class="headerlink" href="#composicao-de-tipos" title="Permanent link">&para;</a></h2>
+<p>Tipos podem ser criados a partir de outros tipos já existentes. Atualmente o sdkgen suporta apenas um operador neste sentido, o spread.</p>
+<h3 id="spreads">Spreads<a class="headerlink" href="#spreads" title="Permanent link">&para;</a></h3>
+<p>Ao expressar um tipo composto (estrutura com um ou mais campos), você pode copiar os campos de outro tipo já existente no local. Para isso utilize <code>...NomeDoTipo</code> dentro da definição de uma estrutura, junto com os demais campos. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>type BasicUser {
+  id: uuid
+  name: string
+}
+
+type User {
+  email: string
+  ...BasicUser
+  friends: BasicUser[]
+}
+</code></pre></div>
+<p>Neste exemplo o tipo <code>User</code> terá 4 campos: <code>email</code>, <code>id</code>, <code>name</code> e <code>friends</code>. O operador <code>...</code> fará papel de copiar os campos de <code>BasicUser</code> para <code>User</code>. É exatamente equivalente a escrever:</p>
+<div class="highlight"><pre><span></span><code>type BasicUser {
+  id: uuid
+  name: string
+}
+
+type User {
+  email: string
+  id: uuid
+  name: string
+  friends: BasicUser[]
+}
+</code></pre></div>
+<p>Um tipo pode conter múltiplos spreads. Caso um campo exista tanto no tipo atual quanto vindo do spread, o campo vindo do spread será utilizado. Caso um mesmo campo apareça em mais de um spread, o último na ordem em que foi escrito apareça. Note que isso significa que um spread sempre substitui o campo do tipo, em caso de conflito. Exemplo:</p>
+<div class="highlight"><pre><span></span><code>type A { foo: int }
+type B { foo: string }
+type C { bar: int }
+
+type Test1 {
+  ...B
+  ...A
+}
+
+type Test2 {
+  ...C
+  bar: string
+}
+</code></pre></div>
+<p>Neste exemplo <code>Test1</code> terá um campo <code>foo</code> de tipo <code>int</code>, já que <code>...A</code> aparece por último. <code>Test2</code>, por sua vez, terá um campo <code>bar</code> de tipo <code>int</code>, já que spreads sempre tem prioridade a campos locais.</p>
 <h2 id="exemplo-final">Exemplo final<a class="headerlink" href="#exemplo-final" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>error NotFound
 
@@ -702,6 +798,20 @@ fn getUser(id: uuid): User
             </div>
           </a>
         
+        
+          <a href="../faq/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Problemas comuns
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
