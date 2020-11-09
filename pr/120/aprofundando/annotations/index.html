@@ -226,16 +226,28 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../../cli/" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Targets
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Targets" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon"></span>
         Targets
       </label>
@@ -268,14 +280,14 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       Aprofundando
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Aprofundando" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         <span class="md-nav__icon md-icon"></span>
         Aprofundando
       </label>
@@ -357,6 +369,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rest/" class="md-nav__link">
+      REST
+    </a>
   </li>
 
         
@@ -511,13 +535,14 @@ fn getUser(id: uuid)
 </code></pre></div>
 <p>Neste exemplo a função <code>getUser</code> pode lançar o erro <code>NotFound</code> ou o erro <code>Forbidden</code>. Note que além desses dois, todas as funções podem lançar o erro <code>Fatal</code>, quando o comportamento sai do esperado. Erros do tipo <code>Fatal</code> devem sempre ser considerados como bugs do backend. Caso a função tente lançar algum dos erros não mapeados, este será convertido em <code>Fatal</code> para o cliente.</p>
 <h2 id="hidden"><code>@hidden</code><a class="headerlink" href="#hidden" title="Permanent link">&para;</a></h2>
-<p>Por padrão todas as funções podem ser chamadas no playground e são parte dos targets de clientes gerados. Caso uma função precise existir, mas não deva ser chamada normalmente, a anotação <code>@hidden</code> pode ser aplicada. As funções ocultas não existirão no playground ou nos target gerados, sendo útil para depreciar funções antigas ou para marcar funções para serem utilizadas exclusivamente como REST (ver <a href="#rest"><code>@rest</code></a>). Repare que funções marcadas como <code>@hidden</code> ainda existem e ainda podem ser chamadas, especialmente por targets antigos. Não use para efeitos de segurança. Exemplo:</p>
+<p>Por padrão todas as funções podem ser chamadas no playground e são parte dos targets de clientes gerados. Caso uma função precise existir, mas não deva ser chamada normalmente, a anotação <code>@hidden</code> pode ser aplicada. As funções ocultas não existirão no playground ou nos target gerados, sendo útil para depreciar funções antigas ou para marcar funções para serem utilizadas exclusivamente como <a href="../rest/">REST</a>. Repare que funções marcadas como <code>@hidden</code> ainda existem e ainda podem ser chamadas, especialmente por targets antigos. Não use para efeitos de segurança. Exemplo:</p>
 <div class="highlight"><pre><span></span><code>@hidden
 fn getUser(): User
 
 fn getUserV2(): UserV2
 </code></pre></div>
 <h2 id="rest"><code>@rest</code><a class="headerlink" href="#rest" title="Permanent link">&para;</a></h2>
+<p>Ver <a href="../rest/">REST</a>.</p>
                 
               
               
@@ -551,13 +576,13 @@ fn getUserV2(): UserV2
           </a>
         
         
-          <a href="../datas/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../rest/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
-                date e datetime
+                REST
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
