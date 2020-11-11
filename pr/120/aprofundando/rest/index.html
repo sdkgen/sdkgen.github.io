@@ -320,9 +320,93 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        REST
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
       REST
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anatomia-do-rest" class="md-nav__link">
+    Anatomia do @rest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodo" class="md-nav__link">
+    Método
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caminho" class="md-nav__link">
+    Caminho
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retorno" class="md-nav__link">
+    Retorno
+  </a>
+  
+    <nav class="md-nav" aria-label="Retorno">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-status-http" class="md-nav__link">
+    Código de Status HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacao-do-corpo-da-resposta" class="md-nav__link">
+    Codificação do corpo da resposta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -373,6 +457,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anatomia-do-rest" class="md-nav__link">
+    Anatomia do @rest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodo" class="md-nav__link">
+    Método
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caminho" class="md-nav__link">
+    Caminho
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retorno" class="md-nav__link">
+    Retorno
+  </a>
+  
+    <nav class="md-nav" aria-label="Retorno">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-status-http" class="md-nav__link">
+    Código de Status HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacao-do-corpo-da-resposta" class="md-nav__link">
+    Codificação do corpo da resposta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -389,6 +543,169 @@
                 
                 
                 <h1 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link">&para;</a></h1>
+<p>Em muitos casos queremos expor uma API para externos integrarem e nestes casos o formato REST é um padrão universalmente entendido e aceito, com boas ferramentas em todas as plataformas e linguagens. No sdkgen é possível utilizar a annotation <code>@rest</code> para criar endpoints vinculados a suas funções.</p>
+<p>Para criar uma função REST, inicie criando uma função normal do sdkgen, utilize quaisquer argumentos, tipo de retorno e nome que fizer sentido no seu caso de uso. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>fn getPostsByUser(userId: uuid, since: datetime?, until: datetime?): Post[]
+</code></pre></div>
+<p>Então adicione a annotation <code>@rest</code>. Ela deve definir obrigatoriamente um método e uma path, podendo incluir detalhamento adicional para os headers e body. Neste caso:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /users/{userId}/posts?{since}&amp;{until}
+fn getPostsByUser(userId: uuid, since: datetime?, until: datetime?): Post[]
+</code></pre></div>
+<p>Uma vez que exista ao menos 1 endpoint REST na sua aplicação, um Swagger UI será criado automaticamente com a descrição do endpoint e documentação através de <code>@description</code> e <code>@arg</code>. Para entender mais sobre como configurar este comportamento, leia a página sobre um <a href="../../targets/servidor-nodejs/">Servidor em Node.js</a>.</p>
+<p>Caso queira que sua função esteja disponível exclusivamente como REST utilize <code>@hidden</code>.</p>
+<h2 id="anatomia-do-rest">Anatomia do <code>@rest</code><a class="headerlink" href="#anatomia-do-rest" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>@rest MÉTODO /caminho/do/recurso/com/{arg1}/e/{arg2}?{argNaQuery1}&amp;{argNaQuery2} [header Nome: {header}] [body {argBody}]
+</code></pre></div>
+<p>Cada um dos elementos acima serão explicados nas próximas sessões.</p>
+<h2 id="metodo">Método<a class="headerlink" href="#metodo" title="Permanent link">&para;</a></h2>
+<p>Os seguintes métodos HTTP são suportados: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> e <code>PATCH</code>. Alguns exemplos:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /status
+fn getStatus(): bool
+
+@rest DELETE /product/{id}
+fn deleteProduct(id: uuid)
+
+@rest POST /product [body {newProduct}]
+fn createProduct(newProduct: Product): Product
+</code></pre></div>
+<h2 id="caminho">Caminho<a class="headerlink" href="#caminho" title="Permanent link">&para;</a></h2>
+<p>Logo após o método o segundo elemento obrigatório do <code>@rest</code> é o caminho (ou "endpoint"). Este caminho deve começar com uma "/" e utilizar caracteres permitidos em uma URL. Neste caminho podem ser incluídos alguns seguimentos dinâmicos vinculados aos argumentos da função, como <code>/product/{id}</code> onde <code>id</code> é um argumento. O caminho pode incluir múltiplos destes argumentos.</p>
+<p>Para um argumento poder ser utilizado dentro de um caminho ele deve ter um dos seguintes tipos: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Note que o tipo não pode ser nulável.</p>
+<p>Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/products/{id}
+fn getProduct(storeId: uint, id: uint): Product?
+</code></pre></div>
+<p>Neste caso uma chamada por <code>GET /stores/3/products/47</code> será similar a chamar <code>getProduct(2, 47)</code>.</p>
+<p>Argumentos também podem ser recebidos como parte da <em>query</em>. A <em>query</em> é a parte da URL que vem depois do <code>?</code>, por exemplo: <code>GET /orders?state=open</code>. Para estes argumentos especifique confirme o exemplo abaixo:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/orders?{state}&amp;{date}
+fn getOrders(storeId: uint, state: State?, date: date?): Order[]
+</code></pre></div>
+<p>Neste caso a ordem dos argumentos não será levada em consideração e os tipos aceitos são os mesmos que podem aparecer no caminho, com a exceção de que eles podem ser nuláveis. Neste caso é comum (mas não obrigatório) que os argumentos sejam de fato nuláveis.</p>
+<h2 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h2>
+<p>Em uma API REST pode ser necessário receber argumentos através de headers, especialmente em caso de autenticação. Para receber um header escreva conforme o seguinte exemplo:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /me [header Authorization: {token}]
+fn getCurrentUser(token: base64): User
+</code></pre></div>
+<p>Os tipos permitidos são os mesmos listados para o caminho, podendo ser opcionais: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Múltiplos headers podem ser especificados.</p>
+<h2 id="body">Body<a class="headerlink" href="#body" title="Permanent link">&para;</a></h2>
+<p>Geralmente os métodos <code>POST</code>, <code>PUT</code> e <code>PATCH</code> esperam que um body seja enviado na requisição, embora um body possa ser enviado em qualquer método. No sdkgen você pode encaminhar este body para um dos argumentos da função:</p>
+<div class="highlight"><pre><span></span><code>type NewProduct {
+  name: string
+}
+
+type Product {
+  id: uuid
+  ...NewProduct
+}
+
+@rest POST /products [body {newProduct}]
+fn createProduct(newProduct: NewProduct): Product
+</code></pre></div>
+<p>Apenas um argumento pode ser o body da requisição REST.</p>
+<p>Se o <code>Content-Type</code> tiver sido passado como <code>application/json</code>, então o body será lido conforme as regras de codificação e decodificação padrões do sdkgen. Caso contrário o comportamento é levemente diferente a depender do tipo do argumento:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qualquer nulável</td>
+<td>O argumento será considerado <code>null</code> caso o body esteja em branco.</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>É esperado que o body seja literalmente <code>true</code> ou <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>int</code>, <code>uint</code>, <code>bigint</code> ou <code>float</code></td>
+<td>O body seve conter apenas o número, sem aspas.</td>
+</tr>
+<tr>
+<td><code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
+<td>O conteúdo do body será interpretado diretamente. Não deve estar entre aspas.</td>
+</tr>
+<tr>
+<td><code>xml</code>, <code>bytes</code> ou <code>html</code></td>
+<td>Similar ao caso acima. O conteúdo do body será passado tal como está.</td>
+</tr>
+<tr>
+<td><code>json</code></td>
+<td>Um objeto JSON arbitrário será esperado.</td>
+</tr>
+<tr>
+<td>qualquer enum</td>
+<td>O body deverá ser um dos valores possíveis do enum, sem aspas.</td>
+</tr>
+<tr>
+<td>qualquer tipo composto</td>
+<td>O body será lido conforme as regras de codificação e decodificação padrões do sdkgen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="retorno">Retorno<a class="headerlink" href="#retorno" title="Permanent link">&para;</a></h2>
+<p>A sua função pode retornar qualquer um dos tipos suportados pelo sdkgen. No entanto o comportamento exato irá variar a depender do tipo.</p>
+<h3 id="codigo-de-status-http">Código de Status HTTP<a class="headerlink" href="#codigo-de-status-http" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Código de Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sucesso, mas com retorno null ou sem retorno e com método GET</td>
+<td>404 Not Found</td>
+</tr>
+<tr>
+<td>Sucesso, mas com retorno null ou sem retorno e outros métodos</td>
+<td>204 No Content</td>
+</tr>
+<tr>
+<td>Sucesso, com qualquer outro tipo de retorno</td>
+<td>200 Ok</td>
+</tr>
+<tr>
+<td>Erro lançado dentro da função</td>
+<td>400 Bad Request</td>
+</tr>
+<tr>
+<td>Erro não especificado durante o processamento da requisição</td>
+<td>500 Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="codificacao-do-corpo-da-resposta">Codificação do corpo da resposta<a class="headerlink" href="#codificacao-do-corpo-da-resposta" title="Permanent link">&para;</a></h3>
+<p>Se a requisição tiver passado o header <code>Accept</code> como <code>application/json</code>, então o body será gerado conforme as regras de codificação e decodificação padrões do sdkgen. Caso contrário o comportamento será dependente do tipo de retorno.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code>, <code>int</code>, <code>uint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>bigint</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
+<td>Valor será posto diretamente no body, sem aspas adicionais. O <code>Content-Type</code> será <code>text/plain</code>.</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td>Valor será posto diretamente no body, sem aspas adicionais. O <code>Content-Type</code> será <code>text/html</code>.</td>
+</tr>
+<tr>
+<td><code>bytes</code></td>
+<td>Os bytes serão entregues diretamente, ideal para oferecer download de arquivos. O <code>Content-Type</code> será detectado dinamicamente a depender do conteúdo. Caso não seja possível detectar, será <code>application/octet-stream</code>.</td>
+</tr>
+<tr>
+<td>outros tipos</td>
+<td>O body será gerado conforme as regras de codificação e decodificação padrões do sdkgen.</td>
+</tr>
+</tbody>
+</table>
                 
               
               
