@@ -454,7 +454,7 @@ fn getPost(id: uuid): Post?
 <blockquote>
 <p>Se você usa o Visual Studio Code, esta pode ser uma boa hora para instalar a extensão do sdkgen para sintaxe: <a href="https://marketplace.visualstudio.com/items?itemName=cubos.sdkgen"><strong>Ver no Marketplace.</strong></a></p>
 </blockquote>
-<p>A partir deste arquivo de descrição devemos gerar um arquivo de código TypeScript parece ser a base da nossa aplicação chamado <code>api.ts</code>. Esse arquivo deve ser gerado novamente sempre que o <code>api.sdkgen</code> for modificado:</p>
+<p>A partir deste arquivo de descrição devemos gerar um arquivo de código TypeScript para ser a base da nossa aplicação chamado <code>api.ts</code>. Esse arquivo deve ser gerado novamente sempre que o <code>api.sdkgen</code> for modificado:</p>
 <div class="highlight"><pre><span></span><code>npx sdkgen api.sdkgen -o api.ts -t typescript_nodeserver
 </code></pre></div>
 <p>O arquivo gerado é legível, mas não deve ser alterado por você, visto que as alterações serão perdidas na próxima vez que for gerado novamente. Agora você pode escrever o arquivo principal da sua aplicação, vamos chamar de <code>index.ts</code>:</p>
