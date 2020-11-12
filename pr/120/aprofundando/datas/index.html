@@ -447,7 +447,7 @@
                 
                 
                 <h1 id="comportamento-de-date-e-datetime">Comportamento de <code>date</code> e <code>datetime</code><a class="headerlink" href="#comportamento-de-date-e-datetime" title="Permanent link">&para;</a></h1>
-<p>Como descrito na <a href="../../descrevendo-api/">sessão sobre tipos primitivos</a>, <code>date</code> e <code>datetime</code> possuem significados parecidos, mas fundamentalmente diferentes. Utilize <code>datetime</code> quando quer se referir a um ponto no tempo utilize <code>date</code> quando quer se referir a uma data no calendário.</p>
+<p>Como descrito na <a href="../../descrevendo-api/">sessão sobre tipos primitivos</a>, <code>date</code> e <code>datetime</code> possuem significados parecidos, mas fundamentalmente diferentes. Utilize <code>datetime</code> quando quiser se referir a um ponto no tempo ou <code>date</code> quando quiser se referir a uma data no calendário.</p>
 <h2 id="ponto-no-tempo-datetime">Ponto no tempo: <code>datetime</code><a class="headerlink" href="#ponto-no-tempo-datetime" title="Permanent link">&para;</a></h2>
 <p>Um ponto instantâneo no tempo deve ser o mesmo instante para todos os observadores, independente de onde eles estão. Por conta disso o sdkgen sempre irá corrigir as variações de timezone dos <code>datetime</code>s trocados entre as duas partes. Dessa forma uma das partes pode falar sobre um instante no tempo em seu fuso horário local e o outro lado irá receber exatamente o mesmo instante, mas convertido no seu fuso horário próprio. Esse comportamento é conveniente ao trocar a informação da data de publicação de uma postagem, por exemplo.</p>
 <p>Note que o "inicio do dia" e o "fim do dia" são momentos diferentes em fusos horários diferentes.</p>
