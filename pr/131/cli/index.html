@@ -529,10 +529,10 @@
 <li>Mudar um argumento de <code>uuid</code> para <code>string</code>.</li>
 </ul>
 <p>Estas regras podem rapidamente ficar complexas e são difíceis de checar por quem está escrevendo uma alteração em uma API existente. Por conta disso o sdkgen vem com uma ferramenta para checar compatibilidade entre alterações. Para isso utilize o seguinte comando:</p>
-<div class="highlight"><pre><span></span><code>sdkgen compatibility &lt;old source file&gt; &lt;new source file&gt;
+<div class="highlight"><pre><span></span><code>sdkgen compatibility --old &lt;old source file&gt; --new &lt;new source file&gt;
 </code></pre></div>
 <p>Por exemplo:</p>
-<div class="highlight"><pre><span></span><code>sdkgen compatibility api_antiga.sdkgen api_nova.sdkgen
+<div class="highlight"><pre><span></span><code>sdkgen compatibility --old api_antiga.sdkgen --new api_nova.sdkgen
 </code></pre></div>
 <p>Caso existam quebras de compatibilidade estas serão reportadas.</p>
                 
