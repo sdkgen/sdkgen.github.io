@@ -1,0 +1,806 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sdkgen.github.io/pr/132/aprofundando/rest/">
+      
+      
+      <link rel="shortcut icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>REST - sdkgen</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f0267088.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rest" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://sdkgen.github.io/pr/132" title="sdkgen" class="md-header-nav__button md-logo" aria-label="sdkgen">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            sdkgen
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              REST
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/sdkgen/sdkgen/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://sdkgen.github.io/pr/132" title="sdkgen" class="md-nav__button md-logo" aria-label="sdkgen">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    sdkgen
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/sdkgen/sdkgen/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Conhecendo o sdkgen
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../primeiro-projeto/" class="md-nav__link">
+      Primeiro projeto (em Node.js)
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../descrevendo-api/" class="md-nav__link">
+      Descrevendo uma API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Targets
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Targets" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Targets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../targets/servidor-nodejs/" class="md-nav__link">
+      Servidor Node.js
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Aprofundando
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Aprofundando" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Aprofundando
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../annotations/" class="md-nav__link">
+      Annotations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        REST
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      REST
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anatomia-do-rest" class="md-nav__link">
+    Anatomia do @rest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodo" class="md-nav__link">
+    Método
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caminho" class="md-nav__link">
+    Caminho
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retorno" class="md-nav__link">
+    Retorno
+  </a>
+  
+    <nav class="md-nav" aria-label="Retorno">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-status-http" class="md-nav__link">
+    Código de Status HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacao-do-corpo-da-resposta" class="md-nav__link">
+    Codificação do corpo da resposta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../datas/" class="md-nav__link">
+      date e datetime
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" class="md-nav__link">
+      Problemas comuns
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anatomia-do-rest" class="md-nav__link">
+    Anatomia do @rest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodo" class="md-nav__link">
+    Método
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caminho" class="md-nav__link">
+    Caminho
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retorno" class="md-nav__link">
+    Retorno
+  </a>
+  
+    <nav class="md-nav" aria-label="Retorno">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-status-http" class="md-nav__link">
+    Código de Status HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacao-do-corpo-da-resposta" class="md-nav__link">
+    Codificação do corpo da resposta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sdkgen/sdkgen/edit/master/docs/aprofundando/rest.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link">&para;</a></h1>
+<p>Em muitos casos queremos expor uma API para externos integrarem e nestes casos o formato REST é um padrão universalmente entendido e aceito, com boas ferramentas em todas as plataformas e linguagens. No sdkgen é possível utilizar a annotation <code>@rest</code> para criar endpoints vinculados a suas funções.</p>
+<p>Para criar uma função REST, inicie criando uma função normal do sdkgen, utilize quaisquer argumentos, tipo de retorno e nome que fizer sentido no seu caso de uso. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>fn getPostsByUser(userId: uuid, since: datetime?, until: datetime?): Post[]
+</code></pre></div>
+<p>Então adicione a annotation <code>@rest</code>. Ela deve definir obrigatoriamente um método e uma path, podendo incluir detalhamento adicional para os headers e body. Neste caso:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /users/{userId}/posts?{since}&amp;{until}
+fn getPostsByUser(userId: uuid, since: datetime?, until: datetime?): Post[]
+</code></pre></div>
+<p>Uma vez que exista ao menos 1 endpoint REST na sua aplicação, um Swagger UI será criado automaticamente com a descrição do endpoint e documentação através de <code>@description</code> e <code>@arg</code>. Para entender mais sobre como configurar este comportamento, leia a página sobre um <a href="../../targets/servidor-nodejs/">Servidor em Node.js</a>.</p>
+<p>Caso queira que sua função esteja disponível exclusivamente como REST utilize <code>@hidden</code>.</p>
+<h2 id="anatomia-do-rest">Anatomia do <code>@rest</code><a class="headerlink" href="#anatomia-do-rest" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>@rest MÉTODO /caminho/do/recurso/com/{arg1}/e/{arg2}?{argNaQuery1}&amp;{argNaQuery2} [header Nome: {header}] [body {argBody}]
+</code></pre></div>
+<p>Cada um dos elementos acima serão explicados nas próximas sessões.</p>
+<h2 id="metodo">Método<a class="headerlink" href="#metodo" title="Permanent link">&para;</a></h2>
+<p>Os seguintes métodos HTTP são suportados: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> e <code>PATCH</code>. Alguns exemplos:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /status
+fn getStatus(): bool
+
+@rest DELETE /product/{id}
+fn deleteProduct(id: uuid)
+
+@rest POST /product [body {newProduct}]
+fn createProduct(newProduct: Product): Product
+</code></pre></div>
+<h2 id="caminho">Caminho<a class="headerlink" href="#caminho" title="Permanent link">&para;</a></h2>
+<p>Logo após o método o segundo elemento obrigatório do <code>@rest</code> é o caminho (ou "endpoint"). Este caminho deve começar com uma "/" e utilizar caracteres permitidos em uma URL. Neste caminho podem ser incluídos alguns segmentos dinâmicos vinculados aos argumentos da função, como <code>/product/{id}</code> onde <code>id</code> é um argumento. O caminho pode incluir múltiplos destes argumentos.</p>
+<p>Para um argumento poder ser utilizado dentro de um caminho ele deve ter um dos seguintes tipos: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Note que o tipo não pode ser nulável.</p>
+<p>Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/products/{id}
+fn getProduct(storeId: uint, id: uint): Product?
+</code></pre></div>
+<p>Neste caso uma chamada por <code>GET /stores/3/products/47</code> será similar a chamar <code>getProduct(2, 47)</code>.</p>
+<p>Argumentos também podem ser recebidos como parte da <em>query</em>. A <em>query</em> é a parte da URL que vem depois do <code>?</code>, por exemplo: <code>GET /orders?state=open</code>. Para estes argumentos especifique confirme o exemplo abaixo:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/orders?{state}&amp;{date}
+fn getOrders(storeId: uint, state: State?, date: date?): Order[]
+</code></pre></div>
+<p>Neste caso a ordem dos argumentos não será levada em consideração e os tipos aceitos são os mesmos que podem aparecer no caminho, com a exceção de que eles podem ser nuláveis. Neste caso é comum (mas não obrigatório) que os argumentos sejam de fato nuláveis.</p>
+<h2 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h2>
+<p>Em uma API REST pode ser necessário receber argumentos através de headers, especialmente em caso de autenticação. Para receber um header escreva conforme o seguinte exemplo:</p>
+<div class="highlight"><pre><span></span><code>@rest GET /me [header Authorization: {token}]
+fn getCurrentUser(token: base64): User
+</code></pre></div>
+<p>Os tipos permitidos são os mesmos listados para o caminho, podendo ser opcionais: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Múltiplos headers podem ser especificados.</p>
+<h2 id="body">Body<a class="headerlink" href="#body" title="Permanent link">&para;</a></h2>
+<p>Geralmente os métodos <code>POST</code>, <code>PUT</code> e <code>PATCH</code> esperam que um body seja enviado na requisição, embora um body possa ser enviado em qualquer método. No sdkgen você pode encaminhar este body para um dos argumentos da função:</p>
+<div class="highlight"><pre><span></span><code>type NewProduct {
+  name: string
+}
+
+type Product {
+  id: uuid
+  ...NewProduct
+}
+
+@rest POST /products [body {newProduct}]
+fn createProduct(newProduct: NewProduct): Product
+</code></pre></div>
+<p>Apenas um argumento pode ser o body da requisição REST.</p>
+<p>Se o <code>Content-Type</code> tiver sido passado como <code>application/json</code>, então o body será lido conforme as regras de codificação e decodificação padrões do sdkgen. Caso contrário o comportamento é levemente diferente a depender do tipo do argumento:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qualquer nulável</td>
+<td>O argumento será considerado <code>null</code> caso o body esteja em branco.</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>É esperado que o body seja literalmente <code>true</code> ou <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>int</code>, <code>uint</code>, <code>bigint</code> ou <code>float</code></td>
+<td>O body seve conter apenas o número, sem aspas.</td>
+</tr>
+<tr>
+<td><code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
+<td>O conteúdo do body será interpretado diretamente. Não deve estar entre aspas.</td>
+</tr>
+<tr>
+<td><code>xml</code>, <code>bytes</code> ou <code>html</code></td>
+<td>Similar ao caso acima. O conteúdo do body será passado tal como está.</td>
+</tr>
+<tr>
+<td><code>json</code></td>
+<td>Um objeto JSON arbitrário será esperado.</td>
+</tr>
+<tr>
+<td>qualquer enum</td>
+<td>O body deverá ser um dos valores possíveis do enum, sem aspas.</td>
+</tr>
+<tr>
+<td>qualquer tipo composto</td>
+<td>O body será lido conforme as regras de codificação e decodificação padrões do sdkgen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="retorno">Retorno<a class="headerlink" href="#retorno" title="Permanent link">&para;</a></h2>
+<p>A sua função pode retornar qualquer um dos tipos suportados pelo sdkgen. No entanto o comportamento exato irá variar a depender do tipo.</p>
+<h3 id="codigo-de-status-http">Código de Status HTTP<a class="headerlink" href="#codigo-de-status-http" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Código de Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sucesso, mas com retorno null ou sem retorno e com método GET</td>
+<td>404 Not Found</td>
+</tr>
+<tr>
+<td>Sucesso, mas com retorno null ou sem retorno e outros métodos</td>
+<td>204 No Content</td>
+</tr>
+<tr>
+<td>Sucesso, com qualquer outro tipo de retorno</td>
+<td>200 OK</td>
+</tr>
+<tr>
+<td>Erro lançado dentro da função</td>
+<td>400 Bad Request</td>
+</tr>
+<tr>
+<td>Erro não especificado durante o processamento da requisição</td>
+<td>500 Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="codificacao-do-corpo-da-resposta">Codificação do corpo da resposta<a class="headerlink" href="#codificacao-do-corpo-da-resposta" title="Permanent link">&para;</a></h3>
+<p>Se a requisição tiver passado o header <code>Accept</code> como <code>application/json</code>, então o body será gerado conforme as regras de codificação e decodificação padrões do sdkgen. Caso contrário o comportamento será dependente do tipo de retorno.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code>, <code>int</code>, <code>uint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>bigint</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
+<td>Valor será posto diretamente no body, sem aspas adicionais. O <code>Content-Type</code> será <code>text/plain</code>.</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td>Valor será posto diretamente no body, sem aspas adicionais. O <code>Content-Type</code> será <code>text/html</code>.</td>
+</tr>
+<tr>
+<td><code>bytes</code></td>
+<td>Os bytes serão entregues diretamente, ideal para oferecer download de arquivos. O <code>Content-Type</code> será detectado dinamicamente a depender do conteúdo. Caso não seja possível detectar, será <code>application/octet-stream</code>.</td>
+</tr>
+<tr>
+<td>outros tipos</td>
+<td>O body será gerado conforme as regras de codificação e decodificação padrões do sdkgen.</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../annotations/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Annotations
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../datas/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                date e datetime
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://t.me/sdkgen" target="_blank" rel="noopener" title="Telegram" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://github.com/sdkgen/sdkgen" target="_blank" rel="noopener" title="GitHub" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.instant', 'toc.autohide'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
