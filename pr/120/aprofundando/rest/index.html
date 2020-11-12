@@ -569,7 +569,7 @@ fn deleteProduct(id: uuid)
 fn createProduct(newProduct: Product): Product
 </code></pre></div>
 <h2 id="caminho">Caminho<a class="headerlink" href="#caminho" title="Permanent link">&para;</a></h2>
-<p>Logo após o método o segundo elemento obrigatório do <code>@rest</code> é o caminho (ou "endpoint"). Este caminho deve começar com uma "/" e utilizar caracteres permitidos em uma URL. Neste caminho podem ser incluídos alguns seguimentos dinâmicos vinculados aos argumentos da função, como <code>/product/{id}</code> onde <code>id</code> é um argumento. O caminho pode incluir múltiplos destes argumentos.</p>
+<p>Logo após o método o segundo elemento obrigatório do <code>@rest</code> é o caminho (ou "endpoint"). Este caminho deve começar com uma "/" e utilizar caracteres permitidos em uma URL. Neste caminho podem ser incluídos alguns segmentos dinâmicos vinculados aos argumentos da função, como <code>/product/{id}</code> onde <code>id</code> é um argumento. O caminho pode incluir múltiplos destes argumentos.</p>
 <p>Para um argumento poder ser utilizado dentro de um caminho ele deve ter um dos seguintes tipos: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Note que o tipo não pode ser nulável.</p>
 <p>Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/products/{id}
