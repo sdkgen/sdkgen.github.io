@@ -815,7 +815,7 @@ error NotFound
 <p>A implementação do servidor poderá lançar esses erros ao longo da execução e estes serão transmitidos ao cliente junto a uma mensagem de texto livre, de forma que o cliente possa tratar.</p>
 <p>Toda API sdkgen possui um erro implícito de nome <code>Fatal</code>. Qualquer erro que seja lançado no servidor que não seja um dos erros descritos no contrato da API será convertido em um erro de tipo <code>Fatal</code> antes de ser encaminhado ao cliente. Idealmente uma API nunca deve deixar escapar um erro <code>Fatal</code>.</p>
 <h3 id="importando-outros-arquivos">Importando outros arquivos<a class="headerlink" href="#importando-outros-arquivos" title="Permanent link">&para;</a></h3>
-<p>Conforme uma API se torna maior e mais complexa passa a ser interessante dividir em múltiplos arquivos. Para isso a palavra chave <code>import</code> pode ser utilizada. Por exemplo:</p>
+<p>Conforme uma API se torna maior e mais complexa passa a ser interessante dividir em múltiplos arquivos. Para isso a palavra-chave <code>import</code> pode ser utilizada. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>import &quot;../user&quot;
 </code></pre></div>
 <p>O significado desta linha é buscar um arquivo chamado <code>../user.sdkgen</code> a partir da pasta atual. O <code>..</code> neste caso significa "a pasta acima da pasta atual". Qualquer caminho relativo ao arquivo atual pode ser passado e a extensão do arquivo ( <code>.sdkgen</code>) não deve ser mencionada. O comportamento é diretamente equivalente a copiar o conteúdo do arquivo e colar dentro do arquivo atual, na posição do import. Cuidado para não incluir o mesmo arquivo mais de uma vez.</p>
