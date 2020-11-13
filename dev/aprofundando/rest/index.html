@@ -669,8 +669,12 @@ fn createProduct(newProduct: NewProduct): Product
 <td>200 OK</td>
 </tr>
 <tr>
-<td>Erro lançado dentro da função</td>
+<td>Erro lançado dentro da função diferente de Fatal</td>
 <td>400 Bad Request</td>
+</tr>
+<tr>
+<td>Erro Fatal lançado dentro da função</td>
+<td>500 Internal Server Error</td>
 </tr>
 <tr>
 <td>Erro não especificado durante o processamento da requisição</td>
