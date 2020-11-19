@@ -585,7 +585,7 @@ fn createProduct(newProduct: Product): Product
 <div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/products/{id}
 fn getProduct(storeId: uint, id: uint): Product?
 </code></pre></div>
-<p>Neste caso uma chamada por <code>GET /stores/3/products/47</code> será similar a chamar <code>getProduct(2, 47)</code>.</p>
+<p>Neste caso uma chamada por <code>GET /stores/3/products/47</code> será similar a chamar <code>getProduct(3, 47)</code>.</p>
 <p>Argumentos também podem ser recebidos como parte da <em>query</em>. A <em>query</em> é a parte da URL que vem depois do <code>?</code>, por exemplo: <code>GET /orders?state=open</code>. Para estes argumentos especifique confirme o exemplo abaixo:</p>
 <div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/orders?{state}&amp;{date}
 fn getOrders(storeId: uint, state: State?, date: date?): Order[]
