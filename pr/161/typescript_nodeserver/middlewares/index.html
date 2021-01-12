@@ -440,10 +440,10 @@
                 <h1 id="middlewares">Middlewares<a class="headerlink" href="#middlewares" title="Permanent link">&para;</a></h1>
 <p>Um middleware é uma função registrada que intermedeia todas as chamadas. O conjunto de middlewares funciona como uma pilha em que o último middleware registrado é o primeiro a receber a requisição. Este pode manipular o <code>ctx</code> livremente e deve retornar uma resposta ou lançar um erro. O middleware pode opcionalmente chamar uma ou mais vezes o próximo middleware através da função <code>next</code> recebida como argumento. A maioria dos middlewares irá chamar <code>next</code> exatamente uma vez, mas isso não é uma regra.</p>
 <p>O retorno de <code>next</code> pode também ser manipulado antes de ser retornado. No fim da pilha o último middleware recebe uma função <code>next</code> que é a própria implementação da execução da chamada em questão, localizada no <code>api.fn</code>. Caso o nome da função em <code>ctx.request.name</code> tenha sido alterado, este será chamado.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">api</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">async</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">api</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">async</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Faça qualquer coisa com o `ctx` aqui.</span>
   <span class="c1">// O nome da função é `ctx.request.name` e os argumentos `ctx.request.args`.</span>
-  <span class="kr">const</span> <span class="nx">reply</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">next</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">next</span><span class="p">();</span>
   <span class="c1">// Faça qualquer coisa com a resposta aqui.</span>
   <span class="k">return</span> <span class="nx">reply</span><span class="p">;</span>
 <span class="p">});</span>

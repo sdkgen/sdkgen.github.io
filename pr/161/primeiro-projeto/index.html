@@ -507,10 +507,10 @@ fn getPost(id: uuid): Post?
 <div class="highlight"><pre><span></span><code>npx sdkgen api.sdkgen -o api.ts -t typescript_nodeserver
 </code></pre></div>
 <p>O arquivo gerado é legível, mas não deve ser alterado por você, visto que as alterações serão perdidas na próxima vez que for gerado novamente. Agora você pode escrever o arquivo principal da sua aplicação, vamos chamar de <code>index.ts</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">SdkgenHttpServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@sdkgen/node-runtime&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">api</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./api&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">SdkgenHttpServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@sdkgen/node-runtime&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">api</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./api&quot;</span><span class="p">;</span>
 
-<span class="nx">api</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">getPost</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">getPost</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">id</span><span class="p">,</span>
     <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Primeira postagem&quot;</span><span class="p">,</span>
@@ -522,8 +522,8 @@ fn getPost(id: uuid): Post?
   <span class="p">};</span>
 <span class="p">};</span>
 
-<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SdkgenHttpServer</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="p">{});</span>
-<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8000</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SdkgenHttpServer</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="p">{});</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">8000</span><span class="p">);</span>
 </code></pre></div>
 <p>Neste exemplo temos a importação do runtime específico de node e do arquivo gerado, em seguida a implementação das funções e por fim a criação do servidor HTTP. Por ser TypeScript, tudo está apropriadamente tipado e é checado pelo transpilador.</p>
 <p>Ao fim, construa e execute a aplicação:</p>
