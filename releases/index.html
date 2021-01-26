@@ -266,54 +266,11 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
       
       <label class="md-nav__link" for="nav-5">
-        Targets
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Targets" data-md-level="1">
-        <label class="md-nav__title" for="nav-5">
-          <span class="md-nav__icon md-icon"></span>
-          Targets
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../targets/servidor-nodejs/" class="md-nav__link">
-        Servidor Node.js
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
-      
-      <label class="md-nav__link" for="nav-6">
         Aprofundando
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Aprofundando" data-md-level="1">
-        <label class="md-nav__title" for="nav-6">
+        <label class="md-nav__title" for="nav-5">
           <span class="md-nav__icon md-icon"></span>
           Aprofundando
         </label>
@@ -351,6 +308,61 @@
     <li class="md-nav__item">
       <a href="../aprofundando/datas/" class="md-nav__link">
         date e datetime
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
+        Servidor Node.js
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Servidor Node.js" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Servidor Node.js
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript_nodeserver/intro/" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript_nodeserver/middlewares/" class="md-nav__link">
+        Middlewares
       </a>
     </li>
   
@@ -414,6 +426,13 @@
       Índice
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#150-2021-01-26" class="md-nav__link">
+    1.5.0 (2021-01-26)
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#144-2021-01-26" class="md-nav__link">
@@ -483,6 +502,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#150-2021-01-26" class="md-nav__link">
+    1.5.0 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#144-2021-01-26" class="md-nav__link">
     1.4.4 (2021-01-26)
   </a>
@@ -535,6 +561,36 @@
                 
                 
                 <h1 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h1>
+<h2 id="150-2021-01-26">1.5.0 (2021-01-26)<a class="headerlink" href="#150-2021-01-26" title="Permanent link">&para;</a></h2>
+<p><strong>Middlewares</strong></p>
+<p>Agora é possível adicionar múltiplos middlewares na configuração de uma API, possibilitando tomar ações a depender dos argumentos ou do retorno.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">api</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">async</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Faça qualquer coisa com o `ctx` aqui.</span>
+  <span class="c1">// O nome da função é `ctx.request.name` e os argumentos `ctx.request.args`.</span>
+  <span class="kd">const</span> <span class="nx">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">next</span><span class="p">();</span>
+  <span class="c1">// Faça qualquer coisa com a resposta aqui.</span>
+  <span class="k">return</span> <span class="nx">reply</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Os hooks anteriores de <code>onRequestStart</code> e <code>onRequestEnd</code> continuam funcionando, mas estão agora depreciados.</p>
+<p>Você pode, por exemplo:</p>
+<ul>
+<li>Salvar os dados da requisição e resposta em um log;</li>
+<li>Medir estatísticas das requisições;</li>
+<li>Controlar rate limit;</li>
+<li>Bloquear ou redirecionar chamadas a depender da função e dos argumentos;</li>
+<li>Implementar cache;</li>
+<li>Implementar re-tentativa a depender de algum erro específico (chamando <code>next</code> mais de uma vez);</li>
+<li>Modificar o erro retornado (<code>try</code>/<code>catch</code> em volta do <code>next</code>).</li>
+</ul>
+<p>Ver <a href="https://github.com/sdkgen/sdkgen/pull/161">#161</a>.</p>
+<p><strong>Outras mudanças</strong></p>
+<ul>
+<li>Suporte ao Node.js 15 (<a href="https://github.com/sdkgen/sdkgen/pull/115">#115</a>).</li>
+<li>Configuração do eslint renovada e tipagem mais forte em todos os pacotes TypeScript (<a href="https://github.com/sdkgen/sdkgen/pull/166">#166</a>).</li>
+<li>Licença do projeto modificada para MIT (<a href="https://github.com/sdkgen/sdkgen/pull/167">#167</a>).</li>
+<li>Atualização de dependências.</li>
+</ul>
 <h2 id="144-2021-01-26">1.4.4 (2021-01-26)<a class="headerlink" href="#144-2021-01-26" title="Permanent link">&para;</a></h2>
 <p><strong>Correções</strong></p>
 <ul>
@@ -561,7 +617,7 @@
 <h2 id="141-2020-11-30">1.4.1 (2020-11-30)<a class="headerlink" href="#141-2020-11-30" title="Permanent link">&para;</a></h2>
 <p><strong>Correções</strong></p>
 <ul>
-<li>Correção de regressão na versão 1.4.0 em que o brower-runtime não retornava o conteúdo da resposta em caso de sucesso.</li>
+<li>Correção de regressão na versão 1.4.0 em que o browser-runtime não retornava o conteúdo da resposta em caso de sucesso.</li>
 <li>Suporte ao tipo primitivo <code>email</code> no Swagger gerado para funções <code>@rest</code> (<a href="https://github.com/sdkgen/sdkgen/pull/140">#140</a>).</li>
 <li>Correção de exemplo na documentação (<a href="https://github.com/sdkgen/sdkgen/pull/137">#137</a>).</li>
 </ul>

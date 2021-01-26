@@ -16,10 +16,6 @@
      <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://sdkgen.github.io/targets/servidor-nodejs/</loc>
-     <lastmod>2021-01-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://sdkgen.github.io/aprofundando/annotations/</loc>
      <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
@@ -29,6 +25,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://sdkgen.github.io/aprofundando/datas/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://sdkgen.github.io/typescript_nodeserver/intro/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://sdkgen.github.io/typescript_nodeserver/middlewares/</loc>
      <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
