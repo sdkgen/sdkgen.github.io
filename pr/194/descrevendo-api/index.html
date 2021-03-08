@@ -299,6 +299,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#uniao-de-tipos" class="md-nav__link">
+    União de tipos
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -605,6 +612,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#uniao-de-tipos" class="md-nav__link">
+    União de tipos
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -835,6 +849,8 @@
   }[]
 }
 </code></pre></div>
+<h3 id="uniao-de-tipos">União de tipos<a class="headerlink" href="#uniao-de-tipos" title="Permanent link">&para;</a></h3>
+<p>Por fim, todos os tipos descritos anteriormente podem aparecer como parte de uma união de tipos (formalmente <a href="https://en.wikipedia.org/wiki/Tagged_union">"tagged union types"</a>). A sintaxe é expressa na forma de descrever os tipos que fazem parte da união separando com o caractere <code>|</code>. Alguns exemplos: <code>int | uuid</code> ou <code>string | int | string[]</code> ou <code>(cpf | cpnj)[]</code>. Caso tipos compostos ou enums sejam parte de uma união de tipos, eles devem necessáriamente ser tipos nomeados (ver abaixo).</p>
 <h2 id="estrutura-de-um-arquivo-sdkgen">Estrutura de um arquivo <code>.sdkgen</code>.<a class="headerlink" href="#estrutura-de-um-arquivo-sdkgen" title="Permanent link">&para;</a></h2>
 <p>Em um arquivo <code>.sdkgen</code> você pode definir funções, tipos nomeados e erros.</p>
 <h3 id="tipos-nomeados">Tipos nomeados<a class="headerlink" href="#tipos-nomeados" title="Permanent link">&para;</a></h3>
