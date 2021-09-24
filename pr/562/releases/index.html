@@ -1,0 +1,858 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://sdkgen.github.io/pr/562/releases/">
+      
+      <link rel="icon" href="../logo.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>Releases - sdkgen</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#releases" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="sdkgen" class="md-header__button md-logo" aria-label="sdkgen" data-md-component="logo">
+      
+  <img src="../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            sdkgen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Releases
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/sdkgen/sdkgen/" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="sdkgen" class="md-nav__button md-logo" aria-label="sdkgen" data-md-component="logo">
+      
+  <img src="../logo.png" alt="logo">
+
+    </a>
+    sdkgen
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/sdkgen/sdkgen/" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Conhecendo o sdkgen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../primeiro-projeto/" class="md-nav__link">
+        Primeiro projeto (em Node.js)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../descrevendo-api/" class="md-nav__link">
+        Descrevendo uma API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Aprofundando
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aprofundando" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Aprofundando
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aprofundando/annotations/" class="md-nav__link">
+        Annotations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aprofundando/rest/" class="md-nav__link">
+        REST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aprofundando/datas/" class="md-nav__link">
+        date e datetime
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Servidor Node.js
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Servidor Node.js" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Servidor Node.js
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript_nodeserver/intro/" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript_nodeserver/middlewares/" class="md-nav__link">
+        Middlewares
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        Problemas comuns
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Releases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Releases
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#155-2021-02-22" class="md-nav__link">
+    1.5.5 (2021-02-22)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#154-2021-02-19" class="md-nav__link">
+    1.5.4 (2021-02-19)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-2021-02-10" class="md-nav__link">
+    1.5.3 (2021-02-10)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-2021-02-09" class="md-nav__link">
+    1.5.2 (2021-02-09)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#151-2021-01-26" class="md-nav__link">
+    1.5.1 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#150-2021-01-26" class="md-nav__link">
+    1.5.0 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#144-2021-01-26" class="md-nav__link">
+    1.4.4 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-2021-01-18" class="md-nav__link">
+    1.4.3 (2021-01-18)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#142-2020-12-21" class="md-nav__link">
+    1.4.2 (2020-12-21)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#141-2020-11-30" class="md-nav__link">
+    1.4.1 (2020-11-30)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#140-2020-11-19" class="md-nav__link">
+    1.4.0 (2020-11-19)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#155-2021-02-22" class="md-nav__link">
+    1.5.5 (2021-02-22)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#154-2021-02-19" class="md-nav__link">
+    1.5.4 (2021-02-19)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-2021-02-10" class="md-nav__link">
+    1.5.3 (2021-02-10)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-2021-02-09" class="md-nav__link">
+    1.5.2 (2021-02-09)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#151-2021-01-26" class="md-nav__link">
+    1.5.1 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#150-2021-01-26" class="md-nav__link">
+    1.5.0 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#144-2021-01-26" class="md-nav__link">
+    1.4.4 (2021-01-26)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-2021-01-18" class="md-nav__link">
+    1.4.3 (2021-01-18)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#142-2020-12-21" class="md-nav__link">
+    1.4.2 (2020-12-21)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#141-2020-11-30" class="md-nav__link">
+    1.4.1 (2020-11-30)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#140-2020-11-19" class="md-nav__link">
+    1.4.0 (2020-11-19)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sdkgen/sdkgen/edit/master/docs/releases.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h1>
+<h2 id="155-2021-02-22">1.5.5 (2021-02-22)<a class="headerlink" href="#155-2021-02-22" title="Permanent link">&para;</a></h2>
+<p><strong>Correções:</strong>
+- Correção no carregamento do <code>/playground</code> por conta de regressão causada pela versão 1.5.4 (<a href="https://github.com/sdkgen/sdkgen/pull/184">#184</a>).</p>
+<h2 id="154-2021-02-19">1.5.4 (2021-02-19)<a class="headerlink" href="#154-2021-02-19" title="Permanent link">&para;</a></h2>
+<p><strong>Correções:</strong>
+- Correção no recebimento de objetos retornados pela API no browser-runtime (<a href="https://github.com/sdkgen/sdkgen/pull/181">#181</a>).
+- Correção no tratamento de rotas REST para que caso mais de uma rota encaixe com uma requisição, aquela que contém a maior quantidade de caracteres que não fazem parte dos argumentos seja escolhida (<a href="https://github.com/sdkgen/sdkgen/pull/179">#179</a>).
+- Mudança no tratamento de rotas REST de forma que argumentos do tipo <code>string</code> dentra da path não possam mais conter o caracter <code>/</code> (<a href="https://github.com/sdkgen/sdkgen/pull/179">#179</a>).
+- Validação de datas no browser-runtime e node-runtime de forma que uma data inválida não seja aceita (<a href="https://github.com/sdkgen/sdkgen/pull/180">#180</a>).
+- Atualização de dependências.</p>
+<h2 id="153-2021-02-10">1.5.3 (2021-02-10)<a class="headerlink" href="#153-2021-02-10" title="Permanent link">&para;</a></h2>
+<p><strong>Correção:</strong>
+- Ajustado o tipo <code>TypeDescription</code> utilizado para tipagem dos clientes em Node e Web com respeito ao enums.</p>
+<p>Esta release não inclui nenhuma alteração no comportamento durante execução.</p>
+<h2 id="152-2021-02-09">1.5.2 (2021-02-09)<a class="headerlink" href="#152-2021-02-09" title="Permanent link">&para;</a></h2>
+<p><strong>Correção:</strong>
+- O tipo de retorno das funções <code>encode</code> e <code>decode</code> do <code>@sdkgen/node-runtime</code> estava sendo incorretamente inferido quando o tipo possuia um enum. Essa tipagem foi corrigida.</p>
+<p>Esta release não inclui nenhuma alteração no comportamento durante execução.</p>
+<h2 id="151-2021-01-26">1.5.1 (2021-01-26)<a class="headerlink" href="#151-2021-01-26" title="Permanent link">&para;</a></h2>
+<p>Nenhuma alteração.</p>
+<h2 id="150-2021-01-26">1.5.0 (2021-01-26)<a class="headerlink" href="#150-2021-01-26" title="Permanent link">&para;</a></h2>
+<p><strong>Middlewares</strong></p>
+<p>Agora é possível adicionar múltiplos middlewares na configuração de uma API, possibilitando tomar ações a depender dos argumentos ou do retorno.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">api</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">async</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Faça qualquer coisa com o `ctx` aqui.</span>
+  <span class="c1">// O nome da função é `ctx.request.name` e os argumentos `ctx.request.args`.</span>
+  <span class="kd">const</span> <span class="nx">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">next</span><span class="p">();</span>
+  <span class="c1">// Faça qualquer coisa com a resposta aqui.</span>
+  <span class="k">return</span> <span class="nx">reply</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Os hooks anteriores de <code>onRequestStart</code> e <code>onRequestEnd</code> continuam funcionando, mas estão agora depreciados.</p>
+<p>Você pode, por exemplo:</p>
+<ul>
+<li>Salvar os dados da requisição e resposta em um log;</li>
+<li>Medir estatísticas das requisições;</li>
+<li>Controlar rate limit;</li>
+<li>Bloquear ou redirecionar chamadas a depender da função e dos argumentos;</li>
+<li>Implementar cache;</li>
+<li>Implementar re-tentativa a depender de algum erro específico (chamando <code>next</code> mais de uma vez);</li>
+<li>Modificar o erro retornado (<code>try</code>/<code>catch</code> em volta do <code>next</code>).</li>
+</ul>
+<p>Ver <a href="https://github.com/sdkgen/sdkgen/pull/161">#161</a>.</p>
+<p><strong>Outras mudanças</strong></p>
+<ul>
+<li>Suporte ao Node.js 15 (<a href="https://github.com/sdkgen/sdkgen/pull/115">#115</a>).</li>
+<li>Configuração do eslint renovada e tipagem mais forte em todos os pacotes TypeScript (<a href="https://github.com/sdkgen/sdkgen/pull/166">#166</a>).</li>
+<li>Licença do projeto modificada para MIT (<a href="https://github.com/sdkgen/sdkgen/pull/167">#167</a>).</li>
+<li>Atualização de dependências.</li>
+</ul>
+<h2 id="144-2021-01-26">1.4.4 (2021-01-26)<a class="headerlink" href="#144-2021-01-26" title="Permanent link">&para;</a></h2>
+<p><strong>Correções</strong></p>
+<ul>
+<li>Correção no runtime do Flutter ao lançar erros do tipo <code>SdkgenErrorWithData</code> (<a href="https://github.com/sdkgen/sdkgen/pull/175">#175</a>).</li>
+</ul>
+<h2 id="143-2021-01-18">1.4.3 (2021-01-18)<a class="headerlink" href="#143-2021-01-18" title="Permanent link">&para;</a></h2>
+<p><strong>Correções</strong></p>
+<ul>
+<li>Gerador de código do Flutter com erros que contém dados (<code>SdkgenErrorWithData</code>) agora produzem código válido (<a href="https://github.com/sdkgen/sdkgen/pull/171">#171</a>).</li>
+<li>Gerador de código do Android agora utiliza <code>SupervisorJob</code> (<a href="https://github.com/sdkgen/sdkgen/pull/168">#168</a>).</li>
+</ul>
+<h2 id="142-2020-12-21">1.4.2 (2020-12-21)<a class="headerlink" href="#142-2020-12-21" title="Permanent link">&para;</a></h2>
+<p><strong>Correções</strong></p>
+<ul>
+<li><code>SdkgenErrorWithData</code> não será mais importado pelo código gerado sem necessidade, evitando problemas com linter (<a href="https://github.com/sdkgen/sdkgen/pull/141">#141</a>).</li>
+<li>Correção na uso do <code>WebpackManifestPlugin</code> no playground.</li>
+<li>Correção no syntax highlighting no Visual Studio Code para <code>error</code> (<a href="https://github.com/sdkgen/sdkgen/pull/152">#152</a>).</li>
+<li>Correção no processamento do tipo <code>money</code> no Flutter (<a href="https://github.com/sdkgen/sdkgen/pull/153">#153</a>).</li>
+<li>Código duplicado removido (<a href="https://github.com/sdkgen/sdkgen/pull/155">#155</a>).</li>
+<li>Correção ao gerar classes de erro no Flutter (<a href="https://github.com/sdkgen/sdkgen/pull/160">#160</a>).</li>
+<li>Correção no processamento do tipo <code>json</code> no Flutter (<a href="https://github.com/sdkgen/sdkgen/pull/159">#159</a>).</li>
+<li>Atualização de dependências.</li>
+</ul>
+<h2 id="141-2020-11-30">1.4.1 (2020-11-30)<a class="headerlink" href="#141-2020-11-30" title="Permanent link">&para;</a></h2>
+<p><strong>Correções</strong></p>
+<ul>
+<li>Correção de regressão na versão 1.4.0 em que o browser-runtime não retornava o conteúdo da resposta em caso de sucesso.</li>
+<li>Suporte ao tipo primitivo <code>email</code> no Swagger gerado para funções <code>@rest</code> (<a href="https://github.com/sdkgen/sdkgen/pull/140">#140</a>).</li>
+<li>Correção de exemplo na documentação (<a href="https://github.com/sdkgen/sdkgen/pull/137">#137</a>).</li>
+</ul>
+<h2 id="140-2020-11-19">1.4.0 (2020-11-19)<a class="headerlink" href="#140-2020-11-19" title="Permanent link">&para;</a></h2>
+<p><strong>Documentação! (<a href="https://github.com/sdkgen/sdkgen/pull/120">#120</a>)</strong></p>
+<p>Temos agora uma documentação nova e escrita em português para o sdkgen. Ainda será foco das próximas releases para garantir que contenha toda a informação necessária para utilizar a manipular o sdkgen. Contribuições serão sempre bem-vindas.</p>
+<p>Confira em: https://sdkgen.github.io</p>
+<p><strong>Dados adicionais em erros (<a href="https://github.com/sdkgen/sdkgen/pull/133">#133</a>)</strong></p>
+<p>No sdkgen sempre foi possível definir tipos de erro:</p>
+<div class="highlight"><pre><span></span><code>error InvalidArgument
+</code></pre></div>
+<p>Agora é possível incluir dados adicionais (de qualquer tipo) junto com um erro:</p>
+<div class="highlight"><pre><span></span><code>error InvalidArgument {
+  argumentName: string
+  reason: string
+}
+</code></pre></div>
+<p>E o erro pode ser lançado como:</p>
+<div class="highlight"><pre><span></span><code>throw new InvalidArgument(&quot;Argumento inválido!&quot;, { argumentName: &quot;amount&quot;, reason: &quot;Deve ser positivo&quot; });
+</code></pre></div>
+<p>Qualquer tipo pode ser utilizado, como por exemplo:</p>
+<div class="highlight"><pre><span></span><code>error NoFunds uint?
+</code></pre></div>
+<p><strong>Outras mudanças</strong></p>
+<ul>
+<li>Lançamento de erros no Node.js deve ser feito através de <code>throw new SomeError("message")</code> em vez do <code>api.err.SomeError("message")</code>. A forma anterior ainda está disponível, mas produzirá um warning. (<a href="https://github.com/sdkgen/sdkgen/pull/122">#122</a>)</li>
+<li>CLI está mais amigável com <code>--help</code> melhorado, inclusive no modo de checagem de compatibilidade <code>sdkgen compatibility --help</code>. (<a href="https://github.com/sdkgen/sdkgen/pull/131">#131</a>)</li>
+<li>Suporte ao tipo <code>xml</code> no retorno de chamadas REST. (<a href="https://github.com/sdkgen/sdkgen/pull/132">#132</a>)</li>
+<li>.NET 5.0 incluído no CI. (<a href="https://github.com/sdkgen/sdkgen/pull/135">#135</a>)</li>
+<li>Atualização de dependências.</li>
+</ul>
+<p><strong>Correções</strong></p>
+<ul>
+<li>Informações do dispositivo Android e iOS agora são corretamente reportadas no Flutter. (<a href="https://github.com/sdkgen/sdkgen/pull/126">#126</a>)</li>
+<li>Coloração de sintaxe corrigida para <code>@description</code> e <code>@arg</code> com múltiplas linhas no VSCode. (<a href="https://github.com/sdkgen/sdkgen/pull/128">#128</a>)</li>
+<li>Correção no código de status HTTP em requisições REST em caso de erro Fatal. (<a href="https://github.com/sdkgen/sdkgen/pull/130">#130</a>)</li>
+<li>Correção no envio do tipo <code>bytes</code> como argumento de uma função no Android. (<a href="https://github.com/sdkgen/sdkgen/pull/134">#134</a>)</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../faq/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Problemas comuns" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Problemas comuns
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://t.me/sdkgen" target="_blank" rel="noopener" title="Telegram" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://github.com/sdkgen/sdkgen" target="_blank" rel="noopener" title="GitHub" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.autohide"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>
