@@ -123,6 +123,9 @@ MIT
 @sdkgen/dart-generator
 MIT
 
+@sdkgen/fsharp-generator
+MIT
+
 @sdkgen/kotlin-generator
 MIT
 
