@@ -453,6 +453,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#210-2022-05-09" class="md-nav__link">
+    2.1.0 (2022-05-09)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202-2022-03-14" class="md-nav__link">
+    2.0.2 (2022-03-14)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#201-2022-03-07" class="md-nav__link">
     2.0.1 (2022-03-07)
   </a>
@@ -592,6 +606,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#210-2022-05-09" class="md-nav__link">
+    2.1.0 (2022-05-09)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202-2022-03-14" class="md-nav__link">
+    2.0.2 (2022-03-14)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#201-2022-03-07" class="md-nav__link">
     2.0.1 (2022-03-07)
   </a>
@@ -715,6 +743,21 @@
 
 
 <h1 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h1>
+<h2 id="210-2022-05-09">2.1.0 (2022-05-09)<a class="headerlink" href="#210-2022-05-09" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Suporte a utilizar o sdkgen em serviços Serverless (como Google Cloud Functions ou AWS Lambda), ou junto a servidores Node.js existentes, como o Express.js. Para tal basta criar uma instância do <code>SdkgenHttpServer</code> como usual, e então registrar a propriedade <code>handleRequest</code> como função para receber requisições HTTP. Ver detalhes na <a href="https://sdkgen.github.io/dev/typescript_nodeserver/intro/#uso-do-sdkgen-com-um-servidor-http-existente-ou-cloud-functions">documentação</a>. Ver <a href="https://github.com/sdkgen/sdkgen/pull/678">#678</a>.</li>
+<li>Adicionado <code>ctx.response.headers</code> e <code>ctx.response.statusCode</code> para permitir modificar os headers e o status code da resposta de qualquer requisição, especialmente útil para requisições REST. Ver <a href="https://github.com/sdkgen/sdkgen/pull/676">#676</a>.</li>
+<li>Correções na validação de tipos quando mais de um tipo possui o mesmo nome em locais diferentes. Ver <a href="https://github.com/sdkgen/sdkgen/pull/672">#672</a>.</li>
+<li>Segundo argumento do <code>SdkgenHttpServer</code> agora é opcional quando o <code>ExtraContext</code> não é utilizado, simplificando o código quando injeção de dependência não é necessário.</li>
+<li>Adicionado suporte ao ES2022 com TypeScript. Ver <a href="https://github.com/sdkgen/sdkgen/pull/682">#682</a>.</li>
+<li>Melhoria no diálogo de "Sobre" do playground. Ver <a href="https://github.com/sdkgen/sdkgen/pull/683">#683</a>.</li>
+<li>Atualização de dependências.</li>
+</ul>
+<p>As contribuições de 2 pessoas tornaram essa nova versão possível: <a href="https://github.com/dgadelha">@dgadelha</a> e <a href="https://github.com/lbguilherme">@lbguilherme</a>.</p>
+<h2 id="202-2022-03-14">2.0.2 (2022-03-14)<a class="headerlink" href="#202-2022-03-14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Relançamento da 2.0.1 para correção de falha no processo de publicação.</li>
+</ul>
 <h2 id="201-2022-03-07">2.0.1 (2022-03-07)<a class="headerlink" href="#201-2022-03-07" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Correção no uso do playground em produção.</li>
