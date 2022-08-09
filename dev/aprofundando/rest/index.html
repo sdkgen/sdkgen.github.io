@@ -659,7 +659,7 @@ fn createProduct(newProduct: Product): Product
 </code></pre></div>
 <h2 id="caminho">Caminho<a class="headerlink" href="#caminho" title="Permanent link">&para;</a></h2>
 <p>Logo após o método o segundo elemento obrigatório do <code>@rest</code> é o caminho (ou "endpoint"). Este caminho deve começar com uma "/" e utilizar caracteres permitidos em uma URL. Neste caminho podem ser incluídos alguns segmentos dinâmicos vinculados aos argumentos da função, como <code>/product/{id}</code> onde <code>id</code> é um argumento. O caminho pode incluir múltiplos destes argumentos.</p>
-<p>Para um argumento poder ser utilizado dentro de um caminho ele deve ter um dos seguintes tipos: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Note que o tipo não pode ser nulável.</p>
+<p>Para um argumento poder ser utilizado dentro de um caminho ele deve ter um dos seguintes tipos: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>decimal</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Note que o tipo não pode ser nulável.</p>
 <p>Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>@rest GET /stores/{storeId}/products/{id}
 fn getProduct(storeId: uint, id: uint): Product?
@@ -675,7 +675,7 @@ fn getOrders(storeId: uint, state: State?, date: date?): Order[]
 <div class="highlight"><pre><span></span><code>@rest GET /me [header Authorization: {token}]
 fn getCurrentUser(token: base64): User
 </code></pre></div>
-<p>Os tipos permitidos são os mesmos listados para o caminho, podendo ser opcionais: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Múltiplos headers podem ser especificados.</p>
+<p>Os tipos permitidos são os mesmos listados para o caminho, podendo ser opcionais: <code>bool</code>, <code>int</code>, <code>uint</code>, <code>bigint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>decimal</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code>, <code>base64</code> ou ser um enum. Múltiplos headers podem ser especificados.</p>
 <h2 id="body">Body<a class="headerlink" href="#body" title="Permanent link">&para;</a></h2>
 <p>Geralmente os métodos <code>POST</code>, <code>PUT</code> e <code>PATCH</code> esperam que um body seja enviado na requisição, embora um body possa ser enviado em qualquer método. No sdkgen você pode encaminhar este body para um dos argumentos da função:</p>
 <div class="highlight"><pre><span></span><code>type NewProduct {
@@ -713,7 +713,7 @@ fn createProduct(newProduct: NewProduct): Product
 <td>O body seve conter apenas o número, sem aspas.</td>
 </tr>
 <tr>
-<td><code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
+<td><code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>decimal</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
 <td>O conteúdo do body será interpretado diretamente. Não deve estar entre aspas.</td>
 </tr>
 <tr>
@@ -782,7 +782,7 @@ fn createProduct(newProduct: NewProduct): Product
 </thead>
 <tbody>
 <tr>
-<td><code>bool</code>, <code>int</code>, <code>uint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>bigint</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
+<td><code>bool</code>, <code>int</code>, <code>uint</code>, <code>float</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, <code>money</code>, <code>bigint</code>, <code>decimal</code>, <code>cpf</code>, <code>cnpj</code>, <code>uuid</code>, <code>hex</code> ou <code>base64</code></td>
 <td>Valor será posto diretamente no body, sem aspas adicionais. O <code>Content-Type</code> será <code>text/plain</code>.</td>
 </tr>
 <tr>
