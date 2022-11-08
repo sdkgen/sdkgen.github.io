@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sdkgen.github.io/dev/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/cli/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/descrevendo-api/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/faq/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/primeiro-projeto/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/releases/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/aprofundando/annotations/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/aprofundando/datas/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/aprofundando/rest/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/typescript_nodeserver/intro/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdkgen.github.io/dev/typescript_nodeserver/middlewares/</loc>
-         <lastmod>2022-10-06</lastmod>
+         <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
