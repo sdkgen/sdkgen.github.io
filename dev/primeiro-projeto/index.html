@@ -10,8 +10,14 @@
       
         <link rel="canonical" href="https://sdkgen.github.io/dev/primeiro-projeto/">
       
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../descrevendo-api/">
+      
       <link rel="icon" href="../logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -19,15 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#7e56c2">
-        
       
       
 
@@ -517,19 +518,18 @@
                 
                   
 
-  <a href="https://github.com/sdkgen/sdkgen/edit/master/docs/primeiro-projeto.md" title="Editar esta página" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
+
 
 
 <h1 id="primeiro-projeto-em-nodejs">Primeiro projeto (em Node.js)<a class="headerlink" href="#primeiro-projeto-em-nodejs" title="Permanent link">&para;</a></h1>
 <h2 id="servidor">Servidor<a class="headerlink" href="#servidor" title="Permanent link">&para;</a></h2>
 <p>Vamos criar nosso primeiro projeto utilizando o sdkgen! Antes de qualquer coisa vamos inicializar nosso projeto e instalar dependências:</p>
-<div class="highlight"><pre><span></span><code>npm init -y
-npm i --save-dev typescript @sdkgen/cli
-npm i @sdkgen/node-runtime
-npx tsc --init -t esnext
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init<span class="w"> </span>-y
+npm<span class="w"> </span>i<span class="w"> </span>--save-dev<span class="w"> </span>typescript<span class="w"> </span>@sdkgen/cli
+npm<span class="w"> </span>i<span class="w"> </span>@sdkgen/node-runtime
+npx<span class="w"> </span>tsc<span class="w"> </span>--init<span class="w"> </span>-t<span class="w"> </span>esnext
 </code></pre></div>
 <p>O próximo passo será criar um arquivo de descrição da API. Nele você irá escrever todos os tipos customizados e as funções de sua API. Vamos nomear de <code>api.sdkgen</code>:</p>
 <div class="highlight"><pre><span></span><code>type Post {
@@ -548,31 +548,31 @@ fn getPost(id: uuid): Post?
 <p>Se você usa o Visual Studio Code, esta pode ser uma boa hora para instalar a extensão do sdkgen para sintaxe: <a href="https://marketplace.visualstudio.com/items?itemName=cubos.sdkgen"><strong>Ver no Marketplace.</strong></a></p>
 </blockquote>
 <p>A partir deste arquivo de descrição devemos gerar um arquivo de código TypeScript para ser a base da nossa aplicação chamado <code>api.ts</code>. Esse arquivo deve ser gerado novamente sempre que o <code>api.sdkgen</code> for modificado:</p>
-<div class="highlight"><pre><span></span><code>npx sdkgen api.sdkgen -o api.ts -t typescript_nodeserver
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>sdkgen<span class="w"> </span>api.sdkgen<span class="w"> </span>-o<span class="w"> </span>api.ts<span class="w"> </span>-t<span class="w"> </span>typescript_nodeserver
 </code></pre></div>
 <p>O arquivo gerado é legível, mas não deve ser alterado por você, visto que as alterações serão perdidas na próxima vez que for gerado novamente. Agora você pode escrever o arquivo principal da sua aplicação, vamos chamar de <code>index.ts</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SdkgenHttpServer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@sdkgen/node-runtime&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./api&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SdkgenHttpServer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@sdkgen/node-runtime&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./api&quot;</span><span class="p">;</span>
 
-<span class="nx">api</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">getPost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Primeira postagem&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Lorem ipsum&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">getPost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Primeira postagem&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Lorem ipsum&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">};</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SdkgenHttpServer</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span><span class="w"></span>
-<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">8000</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SdkgenHttpServer</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">8000</span><span class="p">);</span>
 </code></pre></div>
 <p>Neste exemplo temos a importação do runtime específico de node e do arquivo gerado, em seguida a implementação das funções e por fim a criação do servidor HTTP. Por ser TypeScript, tudo está apropriadamente tipado e é checado pelo transpilador.</p>
 <p>Ao fim, construa e execute a aplicação:</p>
-<div class="highlight"><pre><span></span><code>npx tsc
-node index.js
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>tsc
+node<span class="w"> </span>index.js
 </code></pre></div>
 <p>Com a aplicação rodando você pode abrir o playground no seu browser em: http://localhost:8000/playground. Experimente chamar a função lá.</p>
 <p>Para projetos pequenos essa estrutura é suficiente, mas em outros casos é interessante estruturar o projeto de forma a comportar uma API mais complexa, dividindo em múltiplos controllers, separando responsabilidades e facilitando injeção de dependências.</p>
@@ -591,42 +591,6 @@ node index.js
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
-      
-        
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Anterior: Conhecendo o sdkgen" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              Conhecendo o sdkgen
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../descrevendo-api/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Descrevendo uma API" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              Descrevendo uma API
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -665,12 +629,11 @@ node index.js
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.autohide"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.autohide"], "search": "../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>
