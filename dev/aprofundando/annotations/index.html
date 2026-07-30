@@ -950,6 +950,11 @@ fn getUserV2(): UserV2
 <p>Pode ser adicionado na declaração de erros para designar o código de status que será utilizado no retorno do mesmo. Afeta apenas endpoints em modo REST.</p>
 <div class="highlight"><pre><span></span><code>@statusCode 404
 error NotFound
+
+@statusCode 429
+error RateLimited {
+  retryAfter: uint
+}
 </code></pre></div>
 <h2 id="rest"><code>@rest</code><a class="headerlink" href="#rest" title="Permanent link">&para;</a></h2>
 <p>Ver <a href="../rest/">REST</a>.</p>
